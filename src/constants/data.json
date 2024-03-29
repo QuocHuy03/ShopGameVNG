@@ -1,0 +1,791 @@
+[
+  {
+    "id": 12,
+    "code": "VIETTEL",
+    "product_type_name": "Mã thẻ VIETTEL",
+    "image": "https://muathecao.vn/images/vt.png",
+    "status": true,
+    "denominations": [
+      {
+        "id": 1,
+        "price": 10000,
+        "discount": 0,
+        "status": true
+      },
+      {
+        "id": 2,
+        "price": 20000,
+        "discount": 0,
+        "status": true
+      },
+      {
+        "id": 3,
+        "price": 50000,
+        "discount": 2,
+        "status": true
+      },
+      {
+        "id": 4,
+        "price": 100000,
+        "discount": 2,
+        "status": true
+      },
+      {
+        "id": 5,
+        "price": 200000,
+        "discount": 2,
+        "status": true
+      },
+
+      {
+        "id": 7,
+        "price": 500000,
+        "discount": 0,
+        "status": true
+      },
+      {
+        "id": 8,
+        "price": 50000,
+        "discount": 0,
+        "status": true
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "code": "VINAPHONE",
+    "product_type_name": "Mã thẻ VINAPHONE",
+    "image": "https://muathecao.vn/images/vina.png",
+    "status": true,
+    "denominations": [
+      {
+        "id": 1,
+        "price": 10000,
+        "discount": 0,
+        "status": true
+      },
+      {
+        "id": 2,
+        "price": 20000,
+        "discount": 0,
+        "status": true
+      },
+      {
+        "id": 3,
+        "price": 50000,
+        "discount": 2,
+        "status": true
+      },
+      {
+        "id": 4,
+        "price": 100000,
+        "discount": 2,
+        "status": true
+      },
+      {
+        "id": 5,
+        "price": 200000,
+        "discount": 2,
+        "status": true
+      },
+
+      {
+        "id": 7,
+        "price": 500000,
+        "discount": 0,
+        "status": true
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "code": "MOBIFONE",
+    "product_type_name": "Mã thẻ MOBIFONE",
+    "image": "https://muathecao.vn/images/mobi.png",
+    "status": true,
+    "denominations": [
+      {
+        "id": 1,
+        "price": 10000,
+        "discount": 0,
+        "status": true
+      },
+      {
+        "id": 2,
+        "price": 20000,
+        "discount": 0,
+        "status": true
+      },
+      {
+        "id": 3,
+        "price": 50000,
+        "discount": 2,
+        "status": true
+      },
+      {
+        "id": 4,
+        "price": 100000,
+        "discount": 2,
+        "status": true
+      },
+      {
+        "id": 5,
+        "price": 200000,
+        "discount": 2,
+        "status": true
+      },
+
+      {
+        "id": 7,
+        "price": 500000,
+        "discount": 0,
+        "status": true
+      },
+      {
+        "id": 8,
+        "price": 50000,
+        "discount": 0,
+        "status": true
+      },
+      {
+        "id": 9,
+        "price": 500000,
+        "discount": 0,
+        "status": true
+      }
+    ]
+  },
+  {
+    "id": 15,
+    "code": "VIETNAMOBILE",
+    "product_type_name": "Mã thẻ VIETNAMOBILE",
+    "image": "https://muathecao.vn/images/vnmb.png",
+    "status": true,
+    "denominations": [
+      {
+        "id": 1,
+        "price": 10000,
+        "discount": 0,
+        "status": true
+      },
+      {
+        "id": 2,
+        "price": 20000,
+        "discount": 0,
+        "status": true
+      },
+      {
+        "id": 3,
+        "price": 50000,
+        "discount": 2,
+        "status": true
+      },
+      {
+        "id": 4,
+        "price": 100000,
+        "discount": 2,
+        "status": true
+      },
+      {
+        "id": 5,
+        "price": 200000,
+        "discount": 2,
+        "status": true
+      },
+
+      {
+        "id": 7,
+        "price": 500000,
+        "discount": 2,
+        "status": true
+      }
+    ]
+  },
+  {
+    "id": 1,
+    "code": "VCOIN",
+    "product_type_name": "Mã thẻ VCOIN",
+    "image": "https://muathecao.vn/images/V_COIN_01.png",
+    "status": true,
+    "denominations": [
+      {
+        "id": 1,
+        "price": 10000,
+        "discount": 0,
+        "status": true
+      },
+      {
+        "id": 2,
+        "price": 20000,
+        "discount": 0,
+        "status": true
+      },
+      {
+        "id": 3,
+        "price": 50000,
+        "discount": 2.8,
+        "status": true
+      },
+      {
+        "id": 4,
+        "price": 100000,
+        "discount": 2.8,
+        "status": true
+      },
+      {
+        "id": 5,
+        "price": 200000,
+        "discount": 2.8,
+        "status": true
+      },
+      {
+        "id": 6,
+        "price": 300000,
+        "discount": 2.8,
+        "status": true
+      },
+      {
+        "id": 7,
+        "price": 1000000,
+        "discount": 2.8,
+        "status": true
+      },
+      {
+        "id": 8,
+        "price": 500000,
+        "discount": 0,
+        "status": true
+      },
+      {
+        "id": 9,
+        "price": 1000000,
+        "discount": 0,
+        "status": true
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "code": "GARENA",
+    "product_type_name": "Mã thẻ GARENA",
+    "image": "https://muathecao.vn/images/GARENA_01.png",
+    "status": true,
+    "denominations": [
+      {
+        "id": 2,
+        "price": 20000,
+        "discount": 0,
+        "status": true
+      },
+      {
+        "id": 3,
+        "price": 50000,
+        "discount": 2.8,
+        "status": true
+      },
+      {
+        "id": 4,
+        "price": 100000,
+        "discount": 2.8,
+        "status": true
+      },
+      {
+        "id": 5,
+        "price": 200000,
+        "discount": 2.8,
+        "status": true
+      },
+      {
+        "id": 6,
+        "price": 500000,
+        "discount": 2.8,
+        "status": true
+      },
+      {
+        "id": 7,
+        "price": 100000,
+        "discount": 0,
+        "status": true
+      },
+      {
+        "id": 8,
+        "price": 500000,
+        "discount": 0,
+        "status": true
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "code": "ZING",
+    "product_type_name": "Mã thẻ ZING",
+    "image": "https://muathecao.vn/images/ZING_01.png",
+    "status": true,
+    "denominations": [
+      {
+        "id": 1,
+        "price": 10000,
+        "discount": 0,
+        "status": true
+      },
+      {
+        "id": 2,
+        "price": 20000,
+        "discount": 0,
+        "status": true
+      },
+      {
+        "id": 3,
+        "price": 50000,
+        "discount": 2,
+        "status": true
+      },
+      {
+        "id": 4,
+        "price": 100000,
+        "discount": 2,
+        "status": true
+      },
+      {
+        "id": 5,
+        "price": 200000,
+        "discount": 2,
+        "status": true
+      },
+      {
+        "id": 7,
+        "price": 1000000,
+        "discount": 2,
+        "status": true
+      },
+      {
+        "id": 8,
+        "price": 50000,
+        "discount": 0,
+        "status": true
+      },
+      {
+        "id": 9,
+        "price": 500000,
+        "discount": 0,
+        "status": true
+      },
+      {
+        "id": 10,
+        "price": 1000000,
+        "discount": 0,
+        "status": true
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "code": "GATE",
+    "product_type_name": "Mã thẻ GATE",
+    "image": "https://muathecao.vn/images/GATE_01.png",
+    "status": true,
+    "denominations": [
+      {
+        "id": 1,
+        "price": 10000,
+        "discount": 0,
+        "status": true
+      },
+      {
+        "id": 2,
+        "price": 20000,
+        "discount": 0,
+        "status": true
+      },
+      {
+        "id": 3,
+        "price": 50000,
+        "discount": 2,
+        "status": true
+      },
+      {
+        "id": 4,
+        "price": 100000,
+        "discount": 2,
+        "status": true
+      },
+      {
+        "id": 5,
+        "price": 200000,
+        "discount": 2,
+        "status": true
+      },
+
+      {
+        "id": 7,
+        "price": 500000,
+        "discount": 0,
+        "status": true
+      },
+      {
+        "id": 8,
+        "price": 1000000,
+        "discount": 2,
+        "status": true
+      },
+      {
+        "id": 9,
+        "price": 500000,
+        "discount": 0,
+        "status": true
+      },
+      {
+        "id": 10,
+        "price": 1000000,
+        "discount": 0,
+        "status": true
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "code": "ONCASH",
+    "product_type_name": "Mã thẻ ONCASH",
+    "image": "https://muathecao.vn/images/ONCASH_01.png",
+    "status": true,
+    "denominations": [
+      {
+        "id": 2,
+        "price": 20000,
+        "discount": 0,
+        "status": true
+      },
+      {
+        "id": 3,
+        "price": 50000,
+        "discount": 2,
+        "status": true
+      },
+      {
+        "id": 5,
+        "price": 200000,
+        "discount": 2,
+        "status": true
+      },
+
+      {
+        "id": 7,
+        "price": 300000,
+        "discount": 2,
+        "status": true
+      },
+      {
+        "id": 8,
+        "price": 500000,
+        "discount": 2,
+        "status": true
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "code": "FUNCARD",
+    "product_type_name": "Mã thẻ FUNCARD",
+    "image": "https://muathecao.vn/images/FUNCARD_01.png",
+    "status": true,
+    "denominations": [
+      {
+        "id": 1,
+        "price": 10000,
+        "discount": 0,
+        "status": true
+      },
+      {
+        "id": 2,
+        "price": 20000,
+        "discount": 0,
+        "status": true
+      },
+      {
+        "id": 3,
+        "price": 50000,
+        "discount": 2,
+        "status": true
+      },
+      {
+        "id": 4,
+        "price": 100000,
+        "discount": 2,
+        "status": true
+      },
+      {
+        "id": 5,
+        "price": 200000,
+        "discount": 2,
+        "status": true
+      },
+
+      {
+        "id": 7,
+        "price": 500000,
+        "discount": 0,
+        "status": true
+      },
+      {
+        "id": 8,
+        "price": 1000000,
+        "discount": 2,
+        "status": true
+      },
+      {
+        "id": 9,
+        "price": 2000000,
+        "discount": 2,
+        "status": true
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "code": "APPOTA",
+    "product_type_name": "Mã thẻ APPOTA",
+    "image": "https://muathecao.vn/images/APPOTA_CARD_01.png",
+    "status": true,
+    "denominations": [
+      {
+        "id": 3,
+        "price": 50000,
+        "discount": 2,
+        "status": true
+      },
+      {
+        "id": 4,
+        "price": 100000,
+        "discount": 2,
+        "status": true
+      },
+      {
+        "id": 5,
+        "price": 200000,
+        "discount": 2,
+        "status": true
+      },
+
+      {
+        "id": 7,
+        "price": 500000,
+        "discount": 2,
+        "status": true
+      },
+      {
+        "id": 8,
+        "price": 1000000,
+        "discount": 2,
+        "status": true
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "code": "SOHACOIN",
+    "product_type_name": "Mã thẻ SOHACOIN",
+    "image": "https://muathecao.vn/images/SOHA_01.png",
+    "status": true,
+    "denominations": [
+      {
+        "id": 3,
+        "price": 50000,
+        "discount": 2,
+        "status": true
+      },
+      {
+        "id": 4,
+        "price": 100000,
+        "discount": 2,
+        "status": true
+      },
+      {
+        "id": 5,
+        "price": 200000,
+        "discount": 2,
+        "status": true
+      },
+
+      {
+        "id": 7,
+        "price": 500000,
+        "discount": 0,
+        "status": true
+      },
+      {
+        "id": 8,
+        "price": 1000000,
+        "discount": 2,
+        "status": true
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "code": "GOSU",
+    "product_type_name": "Mã thẻ GOSU",
+    "image": "https://muathecao.vn/images/GOSU_01.png",
+    "status": true,
+    "denominations": [
+      {
+        "id": 1,
+        "price": 10000,
+        "discount": 0,
+        "status": true
+      },
+      {
+        "id": 2,
+        "price": 20000,
+        "discount": 0,
+        "status": true
+      },
+      {
+        "id": 3,
+        "price": 50000,
+        "discount": 2,
+        "status": true
+      },
+      {
+        "id": 4,
+        "price": 100000,
+        "discount": 2,
+        "status": true
+      },
+      {
+        "id": 5,
+        "price": 200000,
+        "discount": 2,
+        "status": true
+      },
+
+      {
+        "id": 7,
+        "price": 500000,
+        "discount": 0,
+        "status": true
+      },
+      {
+        "id": 8,
+        "price": 1000000,
+        "discount": 2,
+        "status": true
+      },
+      {
+        "id": 9,
+        "price": 50000,
+        "discount": 0,
+        "status": true
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "code": "SCOIN",
+    "product_type_name": "Mã thẻ SCOIN",
+    "image": "https://muathecao.vn/images/SCOIN_01.png",
+    "status": true,
+    "denominations": [
+      {
+        "id": 1,
+        "price": 10000,
+        "discount": 0,
+        "status": true
+      },
+      {
+        "id": 2,
+        "price": 20000,
+        "discount": 0,
+        "status": true
+      },
+      {
+        "id": 3,
+        "price": 50000,
+        "discount": 2,
+        "status": true
+      },
+      {
+        "id": 4,
+        "price": 100000,
+        "discount": 2,
+        "status": true
+      },
+      {
+        "id": 5,
+        "price": 200000,
+        "discount": 2,
+        "status": true
+      },
+
+      {
+        "id": 7,
+        "price": 500000,
+        "discount": 0,
+        "status": true
+      },
+      {
+        "id": 8,
+        "price": 1000000,
+        "discount": 2,
+        "status": true
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "code": "KUL",
+    "product_type_name": "Mã thẻ KUL",
+    "image": "https://muathecao.vn/images/KULGAME_01.png",
+    "status": true,
+    "denominations": [
+      {
+        "id": 1,
+        "price": 10000,
+        "discount": 0,
+        "status": true
+      },
+      {
+        "id": 2,
+        "price": 20000,
+        "discount": 0,
+        "status": true
+      },
+      {
+        "id": 3,
+        "price": 50000,
+        "discount": 2,
+        "status": true
+      },
+      {
+        "id": 4,
+        "price": 100000,
+        "discount": 2,
+        "status": true
+      },
+      {
+        "id": 5,
+        "price": 200000,
+        "discount": 2,
+        "status": true
+      },
+
+      {
+        "id": 7,
+        "price": 500000,
+        "discount": 0,
+        "status": true
+      },
+      {
+        "id": 8,
+        "price": 1000000,
+        "discount": 2,
+        "status": true
+      },
+      {
+        "id": 9,
+        "price": 2000000,
+        "discount": 2,
+        "status": true
+      }
+    ]
+  }
+]
