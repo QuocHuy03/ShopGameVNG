@@ -10,11 +10,11 @@ const databank = {
   accountName: "Gia Lol",
   accountNumber: "0984746373",
   accountBank: "Vietcombank",
-  noidung: 'nhoncailu'
-}
+  noidung: "nhoncailu",
+};
 
 const mapStateToProps = (state: AppState) => ({
-  data: state.home.data
+  data: state.home.data,
 });
 
 const mapDispatchToProps = {};
@@ -23,7 +23,7 @@ const connector = connect(mapStateToProps, mapDispatchToProps);
 
 interface Props extends ConnectedProps<typeof connector> {}
 
-const RechargePage: React.FC<Props> = ({data}) => {
+const RechargePage: React.FC<Props> = ({ data }) => {
   const { code } = useParams();
   const [activeTab, setActiveTab] = useState<number>(0);
   const handleTabClick = (index: number) => {
@@ -32,169 +32,135 @@ const RechargePage: React.FC<Props> = ({data}) => {
   const randomFourDigitNumber = () => Math.floor(1000 + Math.random() * 10000);
   return (
     <Layout>
-      <div className="layout column justify-center align-center">
-        <div className="row main-body mt-5">
-          <div className="col-md-12 col-12 text-center">
-            <h3>Đơn hàng #MTC{code}</h3>
-            <p>Vui lòng không tắt trang website !</p>
-            <p>
-              <button
-                onClick={() => handleTabClick(0)}
-                className={`btn ${
-                  activeTab === 0 ? "btn-primary" : "btn-secondary"
-                }`}
-              >
-                Đơn chuyển khoản
-              </button>{" "}
-              <button
-                onClick={() => handleTabClick(1)}
-                className={`btn ${
-                  activeTab === 1 ? "btn-primary" : "btn-secondary"
-                }`}
-              >
-                Chi tiết đơn hàng
-              </button>
-            </p>
-          </div>
-          {activeTab === 0 && (
-            <div className="col-md-12 col-12 text-center">
-              <div style={{ justifyContent: "center" }}>
-                <h3>Vui lòng chuyển khoản theo thông tin bên dưới</h3>
-                <h3>
-                  <img src={loading} alt="loading" style={{ width: 100 }} />
-                </h3>
-                <div className="alert alert-danger" role="alert">
-                  <h5>
-                    Vui lòng điền đúng số tiền &amp; nội dung chuyển khoản nhé
-                  </h5>
-                </div>
-                <table
-                  className="table table-bordered text-center"
-                  style={{ height: "100%" }}
-                >
-                  <tbody>
-                    <tr>
-                      <th>Họ &amp; tên</th>
-                      <td>
-                        <b style={{ color: "red" }}>{databank.accountName}</b>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th>Số tài khoản</th>
-                      <td>
-                        <b style={{ color: "red" }}>{databank.accountNumber} </b>
-                        <button className="btn btn-sm btn-success">Copy</button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th>Thanh toán</th>
-                      <td>
-                        <b style={{ color: "red" }}>{databank.accountBank}</b>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th>Số tiền cần chuyển</th>
-                      <td>
-                        <b style={{ color: "red" }}>{formatPrice(data.totalAmount)}</b>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th>Nội dung ghi chú</th>
-                      <td>
-                        <b style={{ color: "red" }}>
-                          {databank.noidung}_{randomFourDigitNumber()}{" "}
-                          <button className="btn btn-sm btn-success">
-                            Copy
-                          </button>
-                        </b>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th>Mã QR quét nhanh</th>
-                      <td>
-                        <img
-                          alt="qr code"
-                          className="img-fluid"
-                          src={`https://img.vietqr.io/image/970416-${databank.accountNumber}-print.png?amount=
-                          ${data.totalAmount}&addInfo=${databank.noidung}_${randomFourDigitNumber()}&accountName=${databank.accountName}`}
-                          style={{ width: 200 }}
-                        />
-                       
-                      </td>
-                    </tr>
-                 
-                  </tbody>
-                </table>
-              </div>
-              <div>
-                <div>
-                  <ul>
-                    <li>
-                      Chuyển tiền xong và sau 5 phút không thấy kết quả, hãy
-                      liên hệ ngay admin.
-                    </li>
-                  </ul>
-                </div>
+      <div
+        className="custom-newUI default-width fadeUp result"
+        style={{ marginTop: 60 }}
+      >
+        <div className="el-row">
+          <div className="el-col el-col-24 content single-item-order">
+            <label className="headResult fail">
+              Giao dịch không thành công
+            </label>
+            <div className="resultTitle" style={{}}>
+              <div className="notification single-item-order">
+                {/**/}
+                <p className="message">
+                  Thẻ đã được sử dụng, giao dịch thất bại!
+                </p>
+                {/**/}
+                {/**/}
+                {/**/}
               </div>
             </div>
-          )}
-          {activeTab === 1 && (
-            <div className="col-md-12 col-12 text-center">
-              <div style={{ justifyContent: "center" }}>
-                <h3>Chi tiết đơn hàng</h3>
-                <table
-                  className="table table-bordered text-center"
-                  style={{ height: "100%" }}
-                >
-                  <tbody>
-                    <tr>
-                      <th>Mã đơn hàng</th>
-                      <td>
-                        <b>MTC{code}</b>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th>Người nhận</th>
-                      <td>
-                        <b>{data.email}</b>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th>Nhà mạng</th>
-                      <td>
-                        <b>{data.cardType}</b>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th>Mệnh giá</th>
-                      <td>
-                        <b>{formatPrice(data.cardValue)}</b>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th>Số lượng</th>
-                      <td>
-                        <b>{data.quantity}</b>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th>Số tiền cần chuyển</th>
-                      <td>
-                        <b>{formatPrice(data.totalAmount)}</b>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          )}
-          <div className="col-md-12">
-            <Link
-              to={PATH.HOME}
-              className="roundstyle color-viettelpay-white v-btn v-btn--block v-btn--is-elevated v-btn--has-bg theme--light v-size--large"
+            <div
+              data-v-c359b4ec
+              className="payment-info-result list-info customsize"
+              style={{}}
             >
-              <span className="v-btn__content">Quay lại !</span>
-            </Link>
+              <div data-v-c359b4ec className="product-wrapper">
+                <div
+                  custom-value="74c3b8cc-8b4a-4522-96aa-b89ffe6bbaec"
+                  data-id="74c3b8cc-8b4a-4522-96aa-b89ffe6bbaec"
+                  data-price={0}
+                  className="package-item"
+                >
+                  <picture className="handle-image">
+                    <source
+                      srcSet="https://scdn-imgsot.vng.games/ws-content/uploads//TOCCHIEN-ZINGPAY-1-LIVE/image/product/1068560116225282048.png?size=origin&iswebp=1"
+                      type="image/webp"
+                    />
+                    <img
+                      src="https://stc-sot.vcdn.vn/ws-content/uploads//TOCCHIEN-ZINGPAY-1-LIVE/image/product/1068560116225282048.png"
+                      alt="Gói 240 Wild Cores"
+                    />
+                  </picture>
+                  {/**/}
+                  {/**/}
+                  <div
+                    data-id="74c3b8cc-8b4a-4522-96aa-b89ffe6bbaec"
+                    className="packageBadge"
+                  >
+                    {/**/}
+                    {/**/}
+                    {/**/}
+                  </div>
+                </div>
+                <div className="retry-auto-debit-tooltip is-right-item">
+                  <div
+                    className="retry_tooltip__content"
+                    style={{ display: "none" }}
+                  >
+                    <div className="notice-container">
+                      <div className="content">
+                        <div className="text">
+                          Chúng tôi đang gặp một số vấn đề khi thu khoản thanh
+                          toán của bạn để gia hạn gói nạp. Vui lòng kiểm tra lại
+                          thông tin thanh toán và đảm bảo rằng bạn còn tiền
+                          trong tài khoản liên kết của mình.
+                        </div>
+                        <div className="text bold-text">
+                          Lưu ý: Bạn có thể huỷ gói bằng cách truy cập trang
+                          Quản lý thanh toán và chọn “Huỷ gói”. Bạn có thể mua
+                          lại gói nạp sau khi đã huỷ gói.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div data-v-c359b4ec className="info-detail">
+                <p data-v-c359b4ec>
+                  <span data-v-c359b4ec>Nhân vật</span>
+                  <code data-v-c359b4ec className="roleName">
+                    Kẻ 1 Line#420
+                  </code>
+                </p>
+                {/**/}
+                <p data-v-c359b4ec>
+                  <span data-v-c359b4ec>Gói nạp</span>
+                  <code data-v-c359b4ec className="productName">
+                    Gói 240 Wild Cores
+                  </code>
+                </p>
+                <p data-v-c359b4ec>
+                  <span data-v-c359b4ec>Mã giao dịch</span>
+                  <code data-v-c359b4ec className="orderNumberStr">
+                    2668239909973663744
+                  </code>
+                </p>
+                <p data-v-c359b4ec>
+                  <span data-v-c359b4ec>Thanh toán</span>
+                  <code data-v-c359b4ec>Thẻ Zing</code>
+                </p>
+                {/**/}
+                {/**/}
+                {/**/}
+                {/**/}
+                {/**/}
+                {/**/}
+                {/**/}
+                {/**/}
+                {/**/}
+                <p data-v-c359b4ec>
+                  <span data-v-c359b4ec>Thời gian giao dịch</span>
+                  <code data-v-c359b4ec className="purchaseTime">
+                    18:16 29/03/2024
+                  </code>
+                </p>
+                {/**/}
+                {/**/}
+              </div>
+            </div>
+            <div className="resultButtonContainer" style={{}}>
+              {/**/}
+              <button type="button" className="el-button el-button--primary">
+                Thanh toán lại
+              </button>
+              {/**/}
+              {/**/}
+              {/**/}
+              {/**/}
+            </div>
           </div>
         </div>
       </div>

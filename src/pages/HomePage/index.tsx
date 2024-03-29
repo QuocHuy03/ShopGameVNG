@@ -182,10 +182,10 @@ const HomePage: React.FC<Props> = () => {
                       custom-value="G0"
                       item-order={0}
                     >
-                      <button className="el-button button el-button--default default around selected">
+                      <button className="el-button button el-button--default around selected">
                         {/**/}
                         {/**/}
-                        <span>{/**/} ZaloPay </span>
+                        <span>{/**/} Mobifone </span>
                       </button>
                       {/**/}
                       {/**/}
@@ -200,7 +200,7 @@ const HomePage: React.FC<Props> = () => {
                       <button className="el-button button el-button--default default around">
                         {/**/}
                         {/**/}
-                        <span>{/**/} Zing Card </span>
+                        <span>{/**/} Viettel </span>
                       </button>
                       {/**/}
                       {/**/}
@@ -215,7 +215,7 @@ const HomePage: React.FC<Props> = () => {
                       <button className="el-button button el-button--default default around">
                         {/**/}
                         {/**/}
-                        <span>{/**/} ATM </span>
+                        <span>{/**/} Vinaphone </span>
                       </button>
                       {/**/}
                       {/**/}
@@ -230,7 +230,7 @@ const HomePage: React.FC<Props> = () => {
                       <button className="el-button button el-button--default default around">
                         {/**/}
                         {/**/}
-                        <span>{/**/} Credit Card </span>
+                        <span>{/**/} Zing Card </span>
                       </button>
                       {/**/}
                       {/**/}
@@ -261,7 +261,7 @@ const HomePage: React.FC<Props> = () => {
                               type="image/webp"
                             />
                             <img
-                              src="https://stc-sot.vcdn.vn/ws-content/uploads//TOCCHIEN-ZINGPAY-1-LIVE/image/product/1068556360549011456.png"
+                              src="https://stc-sot.vcdn.vn/ws-content/uploads//TOCCHIEN-ZINGPAY-1-LIVE/image/product/1068576642047283200.png"
                               alt="Gói 11035 Wild Cores"
                             />
                           </picture>
@@ -366,40 +366,7 @@ const HomePage: React.FC<Props> = () => {
                     <div
                       className="parentInfo el-col el-col-24"
                       style={{ paddingLeft: 15, paddingRight: 15, height: 0 }}
-                    >
-                      <div
-                        id="Display_product_detail_div"
-                        className="packageInfo"
-                      >
-                        <div className="packageInfo__head">
-                          <span className="title" />
-                          <span
-                            id="Product_Detail_Close_Div"
-                            custom-value
-                            item-order
-                            className="close"
-                          >
-                            Đóng
-                          </span>
-                        </div>
-                        <div className="packageInfo__content">
-                          <p />
-                        </div>
-                        <div
-                          id="Product_Detail_Purchase_Div"
-                          item-order
-                          custom-value
-                          className="packageInfo__button"
-                        >
-                          <button className="el-button el-button--default button">
-                            {/**/}
-                            {/**/}
-                            <span>Mua ngay</span>
-                          </button>
-                        </div>
-                        <div className="triangleTop" />
-                      </div>
-                    </div>
+                    ></div>
                     <div
                       className="el-col el-col-12"
                       style={{ paddingLeft: 15, paddingRight: 15 }}
@@ -526,40 +493,7 @@ const HomePage: React.FC<Props> = () => {
                     <div
                       className="parentInfo el-col el-col-24"
                       style={{ paddingLeft: 15, paddingRight: 15, height: 0 }}
-                    >
-                      <div
-                        id="Display_product_detail_div"
-                        className="packageInfo"
-                      >
-                        <div className="packageInfo__head">
-                          <span className="title" />
-                          <span
-                            id="Product_Detail_Close_Div"
-                            custom-value
-                            item-order
-                            className="close"
-                          >
-                            Đóng
-                          </span>
-                        </div>
-                        <div className="packageInfo__content">
-                          <p />
-                        </div>
-                        <div
-                          id="Product_Detail_Purchase_Div"
-                          item-order
-                          custom-value
-                          className="packageInfo__button"
-                        >
-                          <button className="el-button el-button--default button">
-                            {/**/}
-                            {/**/}
-                            <span>Mua ngay</span>
-                          </button>
-                        </div>
-                        <div className="triangleTop" />
-                      </div>
-                    </div>
+                    ></div>
                     <div
                       className="el-col el-col-12"
                       style={{ paddingLeft: 15, paddingRight: 15 }}
@@ -686,40 +620,7 @@ const HomePage: React.FC<Props> = () => {
                     <div
                       className="parentInfo el-col el-col-24"
                       style={{ paddingLeft: 15, paddingRight: 15, height: 0 }}
-                    >
-                      <div
-                        id="Display_product_detail_div"
-                        className="packageInfo"
-                      >
-                        <div className="packageInfo__head">
-                          <span className="title" />
-                          <span
-                            id="Product_Detail_Close_Div"
-                            custom-value
-                            item-order
-                            className="close"
-                          >
-                            Đóng
-                          </span>
-                        </div>
-                        <div className="packageInfo__content">
-                          <p />
-                        </div>
-                        <div
-                          id="Product_Detail_Purchase_Div"
-                          item-order
-                          custom-value
-                          className="packageInfo__button"
-                        >
-                          <button className="el-button el-button--default button">
-                            {/**/}
-                            {/**/}
-                            <span>Mua ngay</span>
-                          </button>
-                        </div>
-                        <div className="triangleTop" />
-                      </div>
-                    </div>
+                    ></div>
                     <div
                       className="el-col el-col-12"
                       style={{ paddingLeft: 15, paddingRight: 15 }}
@@ -784,40 +685,7 @@ const HomePage: React.FC<Props> = () => {
                     <div
                       className="parentInfo el-col el-col-24"
                       style={{ paddingLeft: 15, paddingRight: 15, height: 0 }}
-                    >
-                      <div
-                        id="Display_product_detail_div"
-                        className="packageInfo"
-                      >
-                        <div className="packageInfo__head">
-                          <span className="title" />
-                          <span
-                            id="Product_Detail_Close_Div"
-                            custom-value
-                            item-order
-                            className="close"
-                          >
-                            Đóng
-                          </span>
-                        </div>
-                        <div className="packageInfo__content">
-                          <p />
-                        </div>
-                        <div
-                          id="Product_Detail_Purchase_Div"
-                          item-order
-                          custom-value
-                          className="packageInfo__button"
-                        >
-                          <button className="el-button el-button--default button">
-                            {/**/}
-                            {/**/}
-                            <span>Mua ngay</span>
-                          </button>
-                        </div>
-                        <div className="triangleTop" />
-                      </div>
-                    </div>
+                    ></div>
                   </div>
                   {/**/}
                 </div>
@@ -825,6 +693,359 @@ const HomePage: React.FC<Props> = () => {
               {/**/}
               {/**/}
               {/**/}
+              <div
+                data-v-5d4a953c
+                className="content-box"
+                id="paymentMethodList"
+              >
+                <div className="mask" />
+                <div className="content-box__header">
+                  <div className="content-box__header-container">
+                    <span className="content-box__header-number">3</span>
+                    <span className="content-box__header-content">
+                      Chọn phương thức thanh toán
+                    </span>
+                  </div>
+                </div>
+                <div className="content-box__content">
+                  <div
+                    data-v-5d4a953c
+                    role="tablist"
+                    aria-multiselectable="true"
+                    className="el-collapse pmt-method-group"
+                  >
+                    <div
+                      data-v-5d4a953c
+                      className="el-collapse-item"
+                      id="PaymentChannel_GroupPaymentMethod_Div"
+                      custom-value="zalopay_54"
+                      item-order={0}
+                    >
+                      <div
+                        role="tab"
+                        aria-controls="el-collapse-content-3990"
+                        aria-describedby="el-collapse-content-3990"
+                      >
+                        <div
+                          role="button"
+                          id="el-collapse-head-3990"
+                          tabIndex={0}
+                          className="el-collapse-item__header"
+                        >
+                          <div data-v-5d4a953c className="pmt-group">
+                            <div data-v-5d4a953c className="pmt-group__content">
+                              <div
+                                data-v-5d4a953c
+                                className="pmt-group__img zalopay_54-icon-small"
+                              />
+                              <div data-v-5d4a953c className="pmt-group__name">
+                                <div data-v-5d4a953c className="displayName">
+                                  <p
+                                    data-v-5d4a953c
+                                    className="custom-pmt-group-name"
+                                  >
+                                    {" "}
+                                    ZaloPay {/**/}
+                                  </p>
+                                  <p data-v-5d4a953c className="minAmount">
+                                    {" "}
+                                    2,000,000 VND
+                                  </p>
+                                </div>
+                                {/**/}
+                              </div>
+                            </div>
+                          </div>
+                          <i className="el-collapse-item__arrow el-icon-arrow-right" />
+                        </div>
+                      </div>
+                      <div
+                        role="tabpanel"
+                        aria-labelledby="el-collapse-head-3990"
+                        id="el-collapse-content-3990"
+                        className="el-collapse-item__wrap"
+                        style={{}}
+                        data-old-padding-top
+                        data-old-padding-bottom
+                        data-old-overflow
+                      >
+                        <div className="el-collapse-item__content">
+                          {/**/}
+                          {/**/}
+                          {/**/}
+                          <div
+                            data-v-5d4a953c
+                            className="el-row"
+                            style={{ marginLeft: "-5px", marginRight: "-5px" }}
+                          >
+                            <div
+                              data-v-5d4a953c
+                              className="el-col el-col-8"
+                              style={{ paddingLeft: 5, paddingRight: 5 }}
+                            >
+                              <div
+                                data-v-eac0a7dc
+                                data-v-5d4a953c
+                                className="pmt-method"
+                                id="PaymentChannel_PaymentMethod_Div"
+                                custom-value='{"paymentCountryID":"VN","paymentCurrencyID":"VND","paymentGatewayID":"1","paymentGroupID":"zalopay_54","paymentMethodID":"61","paymentPartnerID":"1","paymentProviderID":"61","isBindingAgreement":0,"isChannelAgreement":0}'
+                                data-id="61-61"
+                                item-order={0}
+                                data-from
+                                data-not-support="Không hỗ trợ."
+                              >
+                                <span
+                                  data-v-eac0a7dc
+                                  className="pmt-method__info"
+                                >
+                                  <div
+                                    data-v-eac0a7dc
+                                    className="pmt__img payzing zalopay_54 partner-1 icon-61"
+                                  />
+                                  <span data-v-eac0a7dc className="pmt__cost">
+                                    <span data-v-5d4a953c data-v-eac0a7dc>
+                                      2,000,000 VND{" "}
+                                    </span>
+                                  </span>
+                                  {/**/}
+                                </span>
+                                <div
+                                  data-v-eac0a7dc
+                                  className="pmt-method__name"
+                                >
+                                  <span data-v-5d4a953c data-v-eac0a7dc>
+                                    Ví ZaloPay
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                            {/**/}
+
+                            <div
+                              data-v-5d4a953c
+                              className="el-col el-col-24"
+                              style={{ paddingLeft: 5, paddingRight: 5 }}
+                            >
+                              <div data-v-5d4a953c className="pmt-input show">
+                                <div
+                                  data-v-5d4a953c
+                                  className="pmtInputContainer"
+                                >
+                                  <form className="el-form pmtMethodInput el-form--label-top">
+                                    <div className="el-form-item is-error is-required">
+                                      <label
+                                        htmlFor="cardSerial"
+                                        className="el-form-item__label"
+                                      >
+                                        Số seri
+                                      </label>
+                                      <div className="el-form-item__content">
+                                        <div
+                                          className="dataInput el-input"
+                                          id="PaymentInfoSubmission_cardSerial_Input"
+                                        >
+                                          {/**/}
+                                          <input
+                                            type="text"
+                                            autoComplete="off"
+                                            placeholder="Nhập số seri"
+                                            data-id="InputString-card-cardSerial"
+                                            className="el-input__inner"
+                                          />
+                                          {/**/}
+                                          {/**/}
+                                          {/**/}
+                                          {/**/}
+                                        </div>
+                                        <input
+                                          type="text"
+                                          className="input-hidden"
+                                        />
+                                        {/**/}
+                                        <div
+                                          id="PaymentInfoSubmission_cardSerial_error_input"
+                                          className="el-form-item__error primo-error"
+                                          data-gtm-vis-recent-on-screen35751452_151={
+                                            1620092
+                                          }
+                                          data-gtm-vis-first-on-screen35751452_151={
+                                            1620092
+                                          }
+                                          data-gtm-vis-total-visible-time35751452_151={
+                                            100
+                                          }
+                                          data-gtm-vis-has-fired35751452_151={1}
+                                        >
+                                          Vui lòng nhập số seri thẻ
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div className="el-form-item is-required">
+                                      <label
+                                        htmlFor="cardPassword"
+                                        className="el-form-item__label"
+                                      >
+                                        Mã thẻ
+                                      </label>
+                                      <div className="el-form-item__content">
+                                        <div
+                                          className="dataInput el-input"
+                                          id="PaymentInfoSubmission_cardPassword_Input"
+                                        >
+                                          {/**/}
+                                          <input
+                                            type="text"
+                                            autoComplete="off"
+                                            placeholder="Nhập mã thẻ"
+                                            data-id="InputString-card-cardPassword"
+                                            className="el-input__inner"
+                                          />
+                                          {/**/}
+                                          {/**/}
+                                          {/**/}
+                                          {/**/}
+                                        </div>
+                                        <input
+                                          type="text"
+                                          className="input-hidden"
+                                        />
+                                        {/**/}
+                                        {/**/}
+                                      </div>
+                                    </div>
+                                  </form>
+                                  <button className="el-button el-button--default button disabled">
+                                    {/**/}
+                                    {/**/}
+                                    <span>Xác nhận</span>
+                                  </button>
+                                </div>
+                                {/**/}
+                              </div>
+                            </div>
+                          </div>
+                          {/**/}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* ddddddddd */}
+              <div className="content-box confirm-single confirm" id="confirm">
+                <div className="mask" />
+                <div className="content-box__header">
+                  <div className="content-box__header-container">
+                    <span className="content-box__header-number">4</span>
+                    <span className="content-box__header-content">
+                      Xác nhận thông tin
+                    </span>
+                  </div>
+                </div>
+                <div className="content-box__content">
+                  <div data-v-c359b4ec className="list-info customsize">
+                    <div data-v-c359b4ec className="product-wrapper">
+                      <div
+                        custom-value="74c3b8cc-8b4a-4522-96aa-b89ffe6bbaec"
+                        item-order={0}
+                        data-id="74c3b8cc-8b4a-4522-96aa-b89ffe6bbaec"
+                        data-price={50000}
+                        className="package-item"
+                      >
+                        <picture className="handle-image">
+                          <source
+                            srcSet="https://scdn-imgsot.vng.games/ws-content/uploads//TOCCHIEN-ZINGPAY-1-LIVE/image/product/1068560116225282048.png?size=origin&iswebp=1"
+                            type="image/webp"
+                          />
+                          <img
+                            src="https://stc-sot.vcdn.vn/ws-content/uploads//TOCCHIEN-ZINGPAY-1-LIVE/image/product/1068560116225282048.png"
+                            alt="Gói 240 Wild Cores"
+                          />
+                        </picture>
+                        {/**/}
+                        {/**/}
+                        <div
+                          data-id="74c3b8cc-8b4a-4522-96aa-b89ffe6bbaec"
+                          className="packageBadge"
+                        >
+                          {/**/}
+                          {/**/}
+                          {/**/}
+                        </div>
+                      </div>
+                      <div className="retry-auto-debit-tooltip is-right-item">
+                        <div
+                          className="retry_tooltip__content"
+                          style={{ display: "none" }}
+                        >
+                          <div className="notice-container">
+                            <div className="content">
+                              <div className="text">
+                                Chúng tôi đang gặp một số vấn đề khi thu khoản
+                                thanh toán của bạn để gia hạn gói nạp. Vui lòng
+                                kiểm tra lại thông tin thanh toán và đảm bảo
+                                rằng bạn còn tiền trong tài khoản liên kết của
+                                mình.
+                              </div>
+                              <div className="text bold-text">
+                                Lưu ý: Bạn có thể huỷ gói bằng cách truy cập
+                                trang Quản lý thanh toán và chọn “Huỷ gói”. Bạn
+                                có thể mua lại gói nạp sau khi đã huỷ gói.
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div data-v-c359b4ec className="info-detail">
+                      <p data-v-c359b4ec>
+                        <span data-v-c359b4ec>Nhân vật</span>
+                        <code data-v-c359b4ec className="roleName">
+                          Kẻ 1 Line#420
+                        </code>
+                      </p>
+                      {/**/}
+                      {/**/}
+                      {/**/}
+                      <p data-v-c359b4ec>
+                        <span data-v-c359b4ec>Thanh toán</span>
+                        <code data-v-c359b4ec>Thẻ Zing</code>
+                      </p>
+                      {/**/}
+                      {/**/}
+                      {/**/}
+                      {/**/}
+                      {/**/}
+                      {/**/}
+                      {/**/}
+                      {/**/}
+                      {/**/}
+                      {/**/}
+                      {/**/}
+                      {/**/}
+                    </div>
+                  </div>
+                  {/**/}
+                  <p className="prdDescription" />
+                  <p>Gói 240 Wild Cores</p>
+                  <p />
+                  {/**/}
+                  <p className="confirmPolicy">
+                    Bằng việc nhấn vào nút Thanh toán ngay, Bạn đồng ý rằng,
+                    giao dịch này là không hoàn, không hủy.
+                  </p>
+                  <button
+                    className="el-button el-button--default button"
+                    id="OrderConfirmation_SubmitOrder_Button"
+                    custom-value="74c3b8cc-8b4a-4522-96aa-b89ffe6bbaec"
+                  >
+                    {/**/}
+                    {/**/}
+                    <span>Thanh toán ngay</span>
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
           {/**/}
