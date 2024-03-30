@@ -16765,7 +16765,7 @@ p code[data-v-3f3af4cc] {
   margin: auto;
 }
 .headResult.fail {
-  color: rgba(219, 31, 31, .9);
+  color: rgba(219, 31, 31, 0.9);
 }
 
 .headResult {
@@ -16775,84 +16775,87 @@ p code[data-v-3f3af4cc] {
   display: block;
 }
 
-
 @keyframes dotsgray-brown-light {
-  0%,20% {
-      color: hsla(0,0%,56.9%,0);
-      text-shadow: .35em 0 0 hsla(0,0%,56.9%,0),.7em 0 0 hsla(0,0%,56.9%,0)
+  0%,
+  20% {
+    color: hsla(0, 0%, 56.9%, 0);
+    text-shadow: 0.35em 0 0 hsla(0, 0%, 56.9%, 0),
+      0.7em 0 0 hsla(0, 0%, 56.9%, 0);
   }
 
   40% {
-      color: #919191;
-      text-shadow: .35em 0 0 hsla(0,0%,56.9%,0),.7em 0 0 hsla(0,0%,56.9%,0)
+    color: #919191;
+    text-shadow: 0.35em 0 0 hsla(0, 0%, 56.9%, 0),
+      0.7em 0 0 hsla(0, 0%, 56.9%, 0);
   }
 
   60% {
-      text-shadow: .35em 0 0 #919191,.7em 0 0 hsla(0,0%,56.9%,0)
+    text-shadow: 0.35em 0 0 #919191, 0.7em 0 0 hsla(0, 0%, 56.9%, 0);
   }
 
-  80%,to {
-      text-shadow: .35em 0 0 #919191,.7em 0 0 #919191
+  80%,
+  to {
+    text-shadow: 0.35em 0 0 #919191, 0.7em 0 0 #919191;
   }
 }
 
 .result .el-row {
-  display: flex
+  display: flex;
 }
 
 .result .content {
   max-width: 450px;
-  margin: auto
+  margin: auto;
 }
 
 .result .list-info {
   flex-direction: column;
-  margin-bottom: 10px
+  margin-bottom: 10px;
 }
 
 .result .list-info .package-item {
   width: 450px;
   height: 252px;
   max-width: unset;
-  margin-bottom: 30px!important
+  margin-bottom: 30px !important;
 }
 
 .result .list-info .package-item img {
-  height: 100%
+  height: 100%;
 }
 
 .result .list-info.customsize .package-item {
   width: 450px;
-  height: 118px
+  height: 118px;
 }
 
 .result .list-info .info-detail {
-  padding-left: 0!important
+  padding-left: 0 !important;
 }
 
 .result .dotLoading:after {
-  animation: dotsgray-brown-light 1s steps(5) infinite
+  animation: dotsgray-brown-light 1s steps(5) infinite;
 }
 
 .result .notification {
-  width: 100%
+  width: 100%;
 }
 
 .result .notification.single-item-order {
-  border-bottom: 1px dashed #c8c8c8
+  border-bottom: 1px dashed #c8c8c8;
 }
 
 .result .notification h2 {
   font-size: 24px;
   font-weight: 700;
   margin-bottom: 10px;
-  color: #000
+  color: #000;
 }
 
 .result .notification p {
   font-size: 14px;
   margin-bottom: 15px;
-  color: #454545
+  color: #454545;
 }
 
 .result .notification-result-success {
@@ -16860,22 +16863,22 @@ p code[data-v-3f3af4cc] {
   border-radius: 4px;
   background-color: #fff6e1;
   padding: 12px 15px;
-  font-size: 14px!important
+  font-size: 14px !important;
 }
 
-.result .notification-result-success>span {
-  color: rgba(219,31,31,.9);
-  font-weight: 700
+.result .notification-result-success > span {
+  color: rgba(219, 31, 31, 0.9);
+  font-weight: 700;
 }
 
-.result .notification-result-success>code {
+.result .notification-result-success > code {
   line-height: 20px;
-  color: #454545
+  color: #454545;
 }
 
 .result .resultButtonContainer {
   margin-top: 30px;
-  animation: fadeDown 1s 1
+  animation: fadeDown 1s 1;
 }
 
 .result .resultButtonContainer a {
@@ -16883,13 +16886,13 @@ p code[data-v-3f3af4cc] {
   text-decoration: underline;
   color: #0089db;
   display: block;
-  margin-bottom: 10px
+  margin-bottom: 10px;
 }
 
 .result .resultButtonContainer .notice {
   font-size: 12px;
   text-align: center;
-  color: #ff4949
+  color: #ff4949;
 }
 
 .result .resultButtonContainer .el-button {
@@ -16899,20 +16902,20 @@ p code[data-v-3f3af4cc] {
   height: 50px;
   border-color: #e26900;
   font-weight: 700;
-  background-color: #e26900
+  background-color: #e26900;
 }
 
 .result .resultButtonContainer .el-button:hover {
-  background: rgba(226,105,0,.8)
+  background: rgba(226, 105, 0, 0.8);
 }
 
 .result .resultButtonContainer .continuePaymentRole {
   background-color: #e26900;
-  transition: background-color .5s
+  transition: background-color 0.5s;
 }
 
 .result .resultButtonContainer .continuePaymentRole:hover {
-  background-color: rgba(226,105,0,.8)
+  background-color: rgba(226, 105, 0, 0.8);
 }
 
 .result .resultButtonContainer .paymentAnotherRole {
@@ -16920,12 +16923,12 @@ p code[data-v-3f3af4cc] {
   margin-left: 0;
   color: #e26900;
   background-color: transparent;
-  transition: color .3s,background-color .5s
+  transition: color 0.3s, background-color 0.5s;
 }
 
 .result .resultButtonContainer .paymentAnotherRole:hover {
   color: #fff;
-  background-color: rgba(226,105,0,.8)
+  background-color: rgba(226, 105, 0, 0.8);
 }
 
 .result .resultButtonContainer .dotLoading {
@@ -16933,113 +16936,257 @@ p code[data-v-3f3af4cc] {
   background: #c8c8c8;
   pointer-events: none;
   color: #919191;
-  font-weight: 700
+  font-weight: 700;
 }
 
 .result .resultButtonContainer .dotLoading:hover {
-  background-color: hsla(0,0%,78.4%,.8)
+  background-color: hsla(0, 0%, 78.4%, 0.8);
 }
 
 .result .resultTitle {
-  animation: fadeDown 1s 1
+  animation: fadeDown 1s 1;
 }
 
 .result .resultTitle canvas {
-  margin: 10px auto
+  margin: 10px auto;
 }
 
 .result .resultTitle .resultButtonContainer {
-  margin-top: 15px
+  margin-top: 15px;
 }
 
 .result .resultTitle p {
   margin-bottom: 15px;
-  font-size: 14px
+  font-size: 14px;
 }
 
 .result .resultTitle p.message {
-  color: #989898
+  color: #989898;
 }
 
 .result .resultTitle p.message-first-payment {
-  color: rgba(219,31,31,.9);
-  font-weight: 700
+  color: rgba(219, 31, 31, 0.9);
+  font-weight: 700;
 }
 
 .result .fadeUp .notification.notEnough {
   padding-bottom: 50px;
-  margin-bottom: 50px
+  margin-bottom: 50px;
 }
 
 .result .fadeUp .notification.notEnough .el-button {
-  margin-bottom: 0
+  margin-bottom: 0;
 }
 
 .result .list-info.payment-info-result {
   margin-top: 12px;
-  animation: fadeDown 1s 1
+  animation: fadeDown 1s 1;
 }
 
-.result .list-info code,.result .list-info p span {
-  flex: 0 1 auto!important
+.result .list-info code,
+.result .list-info p span {
+  flex: 0 1 auto !important;
 }
 
 .result .list-pack-method .package-item img {
-  cursor: pointer
+  cursor: pointer;
 }
 
 .result .info-detail {
   border: 1px solid #ebebeb;
-  border-radius: 4px
+  border-radius: 4px;
 }
 
 .result .info-detail p {
   padding: 10px 0;
-  margin: 0 12px!important;
+  margin: 0 12px !important;
   justify-content: space-between;
-  border-bottom: 1px solid #ebebeb
+  border-bottom: 1px solid #ebebeb;
 }
 
 .result .info-detail p:last-child {
-  border-bottom: none
+  border-bottom: none;
 }
 
 .contain-mobile .result .notification-result-success {
-  padding: 15px
+  padding: 15px;
 }
 
 .mobile .result {
-  max-width: 360px
+  max-width: 360px;
 }
 
 .mobile .result .el-row {
   display: flex;
   justify-content: center;
-  margin-top: 20px
+  margin-top: 20px;
 }
 
 .mobile .result .el-row .content {
   max-width: 340px;
   margin-left: 0;
   margin: unset;
-  margin-top: 20px
+  margin-top: 20px;
 }
 
 .mobile .result .el-row .content.single-item-order {
-  max-width: 290px
+  max-width: 290px;
 }
 
 .mobile .result .el-row .content .list-info {
-  padding-top: 5px
+  padding-top: 5px;
 }
 
 .mobile .result .el-row .content .list-info .package-item {
   width: 100%;
   max-width: 290px;
-  height: 100%
+  height: 100%;
 }
 
 .mobile .result .el-row .content .list-info.customsize .package-item {
   width: 100%;
-  height: 100%
+  height: 100%;
+}
+
+.loginForm .is-error .el-form-item__error {
+  color: #ff4949;
+}
+
+.el-form-item.is-error .el-form-item__error {
+  top: calc(100% + 5px);
+  margin-left: 24px;
+}
+
+.el-form-item__error {
+  transition: top 0.3s;
+}
+.el-form-item__error {
+  color: #f56c6c;
+  font-size: 12px;
+  line-height: 1;
+  padding-top: 4px;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  padding-left: 15px;
+}
+
+.borderErrr {
+  border-color: #f56c6c;
+}
+.v-modal,
+.loadingContainer {
+  background: rgba(0, 0, 0, 0.4) !important;
+}
+
+.loadingContainer .loading {
+  position: fixed;
+  inset: 0px;
+  background-color: rgba(255, 255, 255, 0.4);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 50%;
+  text-align: center;
+  margin: auto;
+  padding-top: 70px;
+  animation: 1s linear 0s infinite normal none running waving;
+  width: 100px;
+  height: 100px;
+  z-index: 1000;
+  border-radius: 50%;
+}
+.loadingContainer .loading {
+  background-image: url(https://shop.vnggames.com/loading.png);
+}
+.loadingContainer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: auto;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgb(219, 147, 28);
+  transition: background 0.3s;
+  z-index: 99999;
+}
+
+.loadingContainer .loading > div {
+  background: #fff;
+  width: 7px;
+  height: 7px;
+  border-radius: 8px;
+  margin: 0 4px;
+  opacity: 0;
+  display: inline-block;
+  animation: blink 1s infinite;
+}
+.loadingContainer .loading > div:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.loadingContainer .loading > div:nth-child(3) {
+  animation-delay: 0.4s;
+}
+@keyframes blink {
+  0% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}
+@keyframes waving {
+  0% {
+    box-shadow: rgba(255, 255, 255, 1) 0 0 0px 0px,
+      rgba(255, 255, 255, 1) 0 0 0px 0px, rgba(255, 255, 255, 1) 0 0 0px 0px;
+  }
+
+  17% {
+    box-shadow: rgba(255, 255, 255, 1) 0 0 0px 5px,
+      rgba(255, 255, 255, 1) 0 0 0px 0px, rgba(255, 255, 255, 1) 0 0 0px 0px;
+  }
+  34% {
+    box-shadow: rgba(255, 255, 255, 0.5) 0 0 0px 10px,
+      rgba(255, 255, 255, 1) 0 0 0px 5px, rgba(255, 255, 255, 1) 0 0 0px 0px;
+  }
+  51% {
+    box-shadow: rgba(255, 255, 255, 0.25) 0 0 0px 15px,
+      rgba(255, 255, 255, 0.5) 0 0 0px 10px, rgba(255, 255, 255, 1) 0 0 0px 5px;
+  }
+  68% {
+    box-shadow: rgba(255, 255, 255, 0) 0 0 0px 15px,
+      rgba(255, 255, 255, 0.25) 0 0 0px 15px,
+      rgba(255, 255, 255, 0.5) 0 0 0px 10px;
+  }
+  85% {
+    box-shadow: rgba(255, 255, 255, 0) 0 0 0px 15px,
+      rgba(255, 255, 255, 0) 0 0 0px 15px,
+      rgba(255, 255, 255, 0.25) 0 0 0px 15px;
+  }
+  100% {
+    box-shadow: rgba(255, 255, 255, 0) 0 0 0px 15px,
+      rgba(255, 255, 255, 0) 0 0 0px 15px, rgba(255, 255, 255, 0) 0 0 0px 15px;
+  }
+}
+.gtWaving > div {
+  background: #fff;
+  width: 7px;
+  height: 7px;
+  border-radius: 8px;
+  margin: 0 4px;
+  opacity: 0;
+  display: inline-block;
+  animation: blink 1s infinite;
+}
+.gtWaving > div:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.gtWaving > div:nth-child(3) {
+  animation-delay: 0.4s;
 }

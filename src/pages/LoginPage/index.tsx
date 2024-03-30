@@ -2,52 +2,49 @@ import React, { useState } from "react";
 import Layout from "../../libs/Layout";
 import * as Yup from "yup";
 import { useFormik } from "formik";
-import { useDispatch } from "react-redux";
 import NProgress from "nprogress";
 import "nprogress/nprogress.css";
 import createNotification from "../../constants/notification.constants";
-import { ThunkDispatch } from "redux-thunk";
-import { RootState } from "../../reducers";
-import { AnyAction } from "redux";
-import data from "../../constants/data.json";
 import { v4 as uuidv4 } from "uuid";
 import { useNavigate } from "react-router-dom";
-import { formatPrice } from "../../helper/format";
 import FormFieldError from "../../components/FormFieldError";
+import axios from "axios";
+import Loading from "../../components/Loading";
+import { PATH } from "../../constants/route.constants";
 type Props = {};
 
-
 const validationSchema = Yup.object({
-  email: Yup.string()
-    .email("Định dạng email không hợp lệ")
-    .required("Email là bắt buộc"),
+  name: Yup.string().required("Vui lòng nhập ID nhân vật"),
 });
 
 const LoginPage: React.FC<Props> = () => {
-  const dispatch = useDispatch();
   const navigate = useNavigate();
-
+  const [validationErrors, setValidationErrors] = useState<any>([]);
+  const [isLoading, setIsLoading] = useState(false);
   const formik = useFormik({
     initialValues: {
-      email: "",
+      name: "",
     },
     validationSchema,
     onSubmit: async (values: any) => {
-      // try {
-      //   NProgress.start();
-      //   const response: any = await (
-      //     dispatch as ThunkDispatch<RootState, null, AnyAction>
-      //   )(createOrderThunk(updatedTransactionDetails));
-      //   if (response) {
-      //     navigate(`/recharge/${parseInt(uuidv4().replace(/-/g, ""), 16)}`);
-      //   } else {
-      //     createNotification("error", "topRight", "Lỗi vui lòng xem lại");
-      //   }
-      // } catch (error: any) {
-      //   createNotification("error", "topRight", error?.message);
-      // } finally {
-      //   NProgress.done();
-      // }
+      setIsLoading(true);
+      try {
+        const response: any = await axios.post(
+          "http://localhost:8000/loginByRole",
+          values
+        );
+        if (response.data.returnCode == 1) {
+          navigate(PATH.HOME)
+        } else {
+          setValidationErrors(response?.data.returnMessage || []);
+          createNotification("error", response?.data.returnMessage);
+        }
+      } catch (error: any) {
+        createNotification("error", error?.message);
+        setValidationErrors(error?.data.returnMessage || []);
+      } finally {
+        setIsLoading(false);
+      }
     },
   });
 
@@ -110,7 +107,11 @@ const LoginPage: React.FC<Props> = () => {
                     <div>
                       {/**/}
                       <div className="loginForm">
-                        <form className="el-form" auto-complete="on">
+                        <form
+                          className="el-form"
+                          auto-complete="on"
+                          onSubmit={formik.handleSubmit}
+                        >
                           <div className="el-form-item is-required">
                             {/**/}
                             <div className="el-form-item__content">
@@ -119,51 +120,41 @@ const LoginPage: React.FC<Props> = () => {
                                 <input
                                   type="text"
                                   autoComplete="off"
-                                  id="Authentication_RoleID_Input"
+                                  id="name"
                                   placeholder=" Riot ID hoặc tên người dùng"
-                                  className="el-input__inner"
+                                  className={`el-input__inner ${
+                                    formik.touched.name &&
+                                    formik.errors.name &&
+                                    "borderErrr"
+                                  }`}
+                                  {...formik.getFieldProps("name")}
                                 />
-                                <span className="el-input__prefix">
-                                  <div className="user-logged">
-                                    <p className="selected">
-                                      {" "}
-                                      Kẻ 1 Line#420 - Kẻ 1 Line#420{" "}
-                                    </p>
-                                  </div>
-                                  {/**/}
-                                </span>
-                                {/**/}
-                                {/**/}
-                                {/**/}
                               </div>
-                              {/**/}
-                              {/**/}
+                              {FormFieldError("name", formik)}
+                              {validationErrors && validationErrors.name && (
+                                <div
+                                  id="Authentication_quick_rid_error_input"
+                                  className="el-form-item__error is-error primo-error"
+                                >
+                                  {validationErrors.name.msg}
+                                </div>
+                              )}
                             </div>
                           </div>
-                          {/**/}
-                          <input type="text" className="input-hidden" />
                           <button
+                            type="submit"
                             className="el-button el-button--default button"
                             id="Authentication_SubmitLogin_Button"
-                            custom-value="quick_rid"
                           >
-                           
                             <span>Xác nhận</span>
                           </button>
                         </form>
                       </div>
                     </div>
-                    {/**/}
-                    <div
-                      className="IdentificationCustomInfo undefined undefined"
-                      id="Authentication_HowToFindRoleID_A"
-                    >
-                      {/**/}
-                      {/**/}
-                    </div>
                   </div>
                 </div>
               </div>
+              {isLoading && <Loading/>}
               {/**/}
               {/**/}
               {/**/}

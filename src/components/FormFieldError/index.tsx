@@ -2,7 +2,12 @@ const FormFieldError = (fieldName: any, formik: any) => {
   return (
     formik.touched[fieldName] &&
     formik.errors[fieldName] && (
-      <div className="alert-error">{formik.errors[fieldName]}</div>
+      <div
+        id="Authentication_quick_rid_error_input"
+        className="el-form-item__error is-error primo-error"
+      >
+        {formik.errors[fieldName]}
+      </div>
     )
   );
 };
