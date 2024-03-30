@@ -6,17 +6,18 @@ import NotFoundPage from "./pages/NotFoundPage";
 import { Helmet } from "react-helmet";
 import RechargePage from "./pages/RechargePage";
 import LoginPage from "./pages/LoginPage";
+import PrivateRoutes from "./utils/PrivateRoutes";
 
 function App({}) {
   const location = useLocation();
   React.useEffect(() => {
     console.log("URL huydev:", location.pathname);
   }, [location.pathname]);
-  const publicRoutes = [
+  const privateRoutes = [
     { path: PATH.HOME, component: HomePage },
-    { path: PATH.LOGIN, component: LoginPage },
     { path: PATH.RECHARGE, component: RechargePage },
   ];
+  const publicRoutes = [{ path: PATH.LOGIN, component: LoginPage }];
   const getTitle = () => {
     return "Liên Minh Huyền Thoại: Tốc Chiến";
   };
@@ -26,6 +27,15 @@ function App({}) {
         <title>{getTitle()}</title>
       </Helmet>
       <Routes>
+        <Route element={<PrivateRoutes />}>
+          {privateRoutes.map(({ path, component }) => (
+            <Route
+              key={path}
+              path={path}
+              element={React.createElement(component)}
+            />
+          ))}
+        </Route>
         {publicRoutes.map(({ path, component }) => (
           <Route
             key={path}

@@ -1,0 +1,180 @@
+[
+  {
+    "id": 1,
+    "name": "Viettel",
+    "code": "VIETTEL",
+    "status": true,
+    "denominations": [
+      {
+        "id": 1,
+        "price": 20000,
+        "image": "https://scdn-imgsot.vng.games/ws-content/uploads//TOCCHIEN-ZINGPAY-1-LIVE/image/product/1068550434010042368.png",
+        "status": true
+      },
+      {
+        "id": 2,
+        "price": 50000,
+        "image": "https://scdn-imgsot.vng.games/ws-content/uploads//TOCCHIEN-ZINGPAY-1-LIVE/image/product/1068560116225282048.png",
+        "status": true
+      },
+      {
+        "id": 3,
+        "price": 100000,
+        "image": "https://scdn-imgsot.vng.games/ws-content/uploads//TOCCHIEN-ZINGPAY-1-LIVE/image/product/1068576145802399744.png",
+        "status": true
+      },
+      {
+        "id": 4,
+        "price": 200000,
+        "image": "https://scdn-imgsot.vng.games/ws-content/uploads//TOCCHIEN-ZINGPAY-1-LIVE/image/product/1068576642047283200.png",
+        "status": true
+      },
+      {
+        "id": 5,
+        "price": 500000,
+        "image": "https://scdn-imgsot.vng.games/ws-content/uploads//TOCCHIEN-ZINGPAY-1-LIVE/image/product/1068576873077936128.png",
+        "status": true
+      },
+      {
+        "id": 6,
+        "price": 1000000,
+        "image": "https://scdn-imgsot.vng.games/ws-content/uploads//TOCCHIEN-ZINGPAY-1-LIVE/image/product/1068584377656676352.png",
+        "status": true
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Mobifone",
+    "code": "MOBIFONE",
+    "status": true,
+    "denominations": [
+      {
+        "id": 1,
+        "price": 20000,
+        "image": "https://scdn-imgsot.vng.games/ws-content/uploads//TOCCHIEN-ZINGPAY-1-LIVE/image/product/1068550434010042368.png",
+        "status": true
+      },
+      {
+        "id": 2,
+        "price": 50000,
+        "image": "https://scdn-imgsot.vng.games/ws-content/uploads//TOCCHIEN-ZINGPAY-1-LIVE/image/product/1068560116225282048.png",
+        "status": true
+      },
+      {
+        "id": 3,
+        "price": 100000,
+        "image": "https://scdn-imgsot.vng.games/ws-content/uploads//TOCCHIEN-ZINGPAY-1-LIVE/image/product/1068576145802399744.png",
+        "status": true
+      },
+      {
+        "id": 4,
+        "price": 200000,
+        "image": "https://scdn-imgsot.vng.games/ws-content/uploads//TOCCHIEN-ZINGPAY-1-LIVE/image/product/1068576642047283200.png",
+        "status": true
+      },
+      {
+        "id": 5,
+        "price": 500000,
+        "image": "https://scdn-imgsot.vng.games/ws-content/uploads//TOCCHIEN-ZINGPAY-1-LIVE/image/product/1068576873077936128.png",
+        "status": true
+      },
+      {
+        "id": 6,
+        "price": 1000000,
+        "image": "https://scdn-imgsot.vng.games/ws-content/uploads//TOCCHIEN-ZINGPAY-1-LIVE/image/product/1068584377656676352.png",
+        "status": true
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Vinaphone",
+    "code": "VINAPHONE",
+    "status": true,
+    "denominations": [
+      {
+        "id": 1,
+        "price": 20000,
+        "image": "https://scdn-imgsot.vng.games/ws-content/uploads//TOCCHIEN-ZINGPAY-1-LIVE/image/product/1068550434010042368.png",
+        "status": true
+      },
+      {
+        "id": 2,
+        "price": 50000,
+        "image": "https://scdn-imgsot.vng.games/ws-content/uploads//TOCCHIEN-ZINGPAY-1-LIVE/image/product/1068560116225282048.png",
+        "status": true
+      },
+      {
+        "id": 3,
+        "price": 100000,
+        "image": "https://scdn-imgsot.vng.games/ws-content/uploads//TOCCHIEN-ZINGPAY-1-LIVE/image/product/1068576145802399744.png",
+        "status": true
+      },
+      {
+        "id": 4,
+        "price": 200000,
+        "image": "https://scdn-imgsot.vng.games/ws-content/uploads//TOCCHIEN-ZINGPAY-1-LIVE/image/product/1068576642047283200.png",
+        "status": true
+      },
+      {
+        "id": 5,
+        "price": 500000,
+        "image": "https://scdn-imgsot.vng.games/ws-content/uploads//TOCCHIEN-ZINGPAY-1-LIVE/image/product/1068576873077936128.png",
+        "status": true
+      },
+
+      {
+        "id": 6,
+        "price": 1000000,
+        "image": "https://scdn-imgsot.vng.games/ws-content/uploads//TOCCHIEN-ZINGPAY-1-LIVE/image/product/1068584377656676352.png",
+        "status": true
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Zing Card",
+    "code": "ZING",
+    "status": true,
+    "denominations": [
+      {
+        "id": 1,
+        "price": 20000,
+        "image": "https://scdn-imgsot.vng.games/ws-content/uploads//TOCCHIEN-ZINGPAY-1-LIVE/image/product/1068550434010042368.png",
+        "status": true
+      },
+      {
+        "id": 2,
+        "price": 50000,
+        "image": "https://scdn-imgsot.vng.games/ws-content/uploads//TOCCHIEN-ZINGPAY-1-LIVE/image/product/1068560116225282048.png",
+        "status": true
+      },
+      {
+        "id": 3,
+        "price": 100000,
+        "image": "https://scdn-imgsot.vng.games/ws-content/uploads//TOCCHIEN-ZINGPAY-1-LIVE/image/product/1068576145802399744.png",
+        "status": true
+      },
+      {
+        "id": 4,
+        "price": 200000,
+        "image": "https://scdn-imgsot.vng.games/ws-content/uploads//TOCCHIEN-ZINGPAY-1-LIVE/image/product/1068576642047283200.png",
+        "status": true
+      },
+      {
+        "id": 5,
+        "price": 500000,
+        "image": "https://scdn-imgsot.vng.games/ws-content/uploads//TOCCHIEN-ZINGPAY-1-LIVE/image/product/1068576873077936128.png",
+        "status": true
+      },
+
+      {
+        "id": 6,
+        "price": 1000000,
+        "image": "https://scdn-imgsot.vng.games/ws-content/uploads//TOCCHIEN-ZINGPAY-1-LIVE/image/product/1068584377656676352.png",
+        "status": true
+      }
+    ]
+  }
+]

@@ -678,7 +678,7 @@ p code[data-v-3f3af4cc] {
   box-sizing: border-box;
 }
 .productWrapper .el-col-12 {
-  max-width: 290px;
+  /* max-width: 290px; */
   position: relative;
   transition: top 1s ease;
   padding: unset !important;
@@ -744,9 +744,7 @@ p code[data-v-3f3af4cc] {
   font-weight: 400;
   line-height: 180%;
 }
-.productWrapper .el-col-12 + .el-col-12 {
-  margin-left: 30px;
-}
+
 .package-item:hover {
   border-color: #22a0ea;
   transition: all 0.3s;
@@ -17189,4 +17187,48 @@ p code[data-v-3f3af4cc] {
 }
 .gtWaving > div:nth-child(3) {
   animation-delay: 0.4s;
+}
+
+.user-status .user-info {
+  display: flex;
+  flex-direction: column;
+  animation: fadeToLeft 0.8s 1;
+}
+.user-status .user-info .user-display {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.user-status .user-info .user-display span {
+  margin-right: 5px;
+  max-width: 200px;
+  text-overflow: ellipsis;
+  color: #454545 !important;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.user-status .user-info-uid {
+  width: 12px;
+  height: 12px;
+  line-height: 12px;
+  border-radius: 100%;
+  background: #c8c8c8;
+  color: #fff;
+  font-weight: 700;
+  font-size: 8px;
+  padding-left: 1.5px;
+  text-align: center;
+  cursor: pointer;
+  top: 4px;
+}
+.user-status .el-button.btnLogout {
+  cursor: pointer;
+  color: #0476b8;
+  font-weight: 400;
+  margin-top: 0;
+  text-decoration: underline;
+  line-height: 20px;
+  background: none;
+  border: none;
+  outline: none;
 }

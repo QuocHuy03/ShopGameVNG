@@ -34,7 +34,8 @@ const LoginPage: React.FC<Props> = () => {
           values
         );
         if (response.data.returnCode == 1) {
-          navigate(PATH.HOME)
+          localStorage.setItem("name", values.name);
+          navigate(PATH.HOME);
         } else {
           setValidationErrors(response?.data.returnMessage || []);
           createNotification("error", response?.data.returnMessage);
@@ -154,7 +155,7 @@ const LoginPage: React.FC<Props> = () => {
                   </div>
                 </div>
               </div>
-              {isLoading && <Loading/>}
+              {isLoading && <Loading />}
               {/**/}
               {/**/}
               {/**/}
