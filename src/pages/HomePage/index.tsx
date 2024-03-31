@@ -4,16 +4,12 @@ import * as Yup from "yup";
 import { useFormik } from "formik";
 import { useDispatch } from "react-redux";
 import createNotification from "../../constants/notification.constants";
-import { ThunkDispatch } from "redux-thunk";
-import { RootState } from "../../reducers";
-import { AnyAction } from "redux";
-import { createOrderThunk } from "./Home.thunks";
-
 import data from "../../constants/packages.json";
 import { v4 as uuidv4 } from "uuid";
 import { useNavigate } from "react-router-dom";
 import { formatPrice } from "../../helper/format";
-import FormFieldError from "../../components/FormFieldError";
+import axios from "axios";
+import Loading from "../../components/Loading";
 type Props = {};
 
 const validationSchema = Yup.object({
@@ -21,14 +17,13 @@ const validationSchema = Yup.object({
   cardPassword: Yup.string().required("Vui lòng nhập mã thẻ"),
 });
 const HomePage: React.FC<Props> = () => {
-  const dispatch = useDispatch();
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [isValidateSuccess, setValidateSuccess] = useState<boolean>(false);
   const [selectedItem, setSelectedItem] = useState(data?.[0] || null);
   const [selectedDenomination, setSelectedDenomination] = useState<any>(null);
   const [selectedCard, setSelectedCard] = useState<boolean>(false);
-
+  const [isLoading, setIsLoading] = useState(false);
   const formik: any = useFormik({
     initialValues: {
       cardSerial: "",
@@ -40,21 +35,22 @@ const HomePage: React.FC<Props> = () => {
         values.cardTelco = selectedDenomination.name;
       }
       console.log(values);
-      // try {
-      //   NProgress.start();
-      //   const response: any = await (
-      //     dispatch as ThunkDispatch<RootState, null, AnyAction>
-      //   )(createOrderThunk(updatedTransactionDetails));
-      //   if (response) {
-      //     navigate(`/recharge/${parseInt(uuidv4().replace(/-/g, ""), 16)}`);
-      //   } else {
-      //     createNotification("error", "topRight", "Lỗi vui lòng xem lại");
-      //   }
-      // } catch (error: any) {
-      //   createNotification("error", "topRight", error?.message);
-      // } finally {
-      //   NProgress.done();
-      // }
+      try {
+        setIsLoading(true);
+        const response: any = await axios.post(
+          "http://localhost:8000/pay",
+          values
+        );
+        if (response.data) {
+          navigate(`/recharge/${parseInt(uuidv4().replace(/-/g, ""), 16)}`);
+        } else {
+          createNotification("error", "Lỗi vui lòng xem lại");
+        }
+      } catch (error: any) {
+        createNotification("error", error?.message);
+      } finally {
+        setIsLoading(false);
+      }
     },
   });
 
@@ -710,6 +706,7 @@ const HomePage: React.FC<Props> = () => {
                   </div>
                 )}
             </form>
+            {isLoading && <Loading />}
           </div>
           {/**/}
         </div>
