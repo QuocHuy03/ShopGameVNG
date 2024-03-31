@@ -1,5 +1,5 @@
 export const formatPrice = (value: string | number) =>
-  Number(value).toLocaleString("en") + "đ";
+  Number(value).toLocaleString("en");
 
 export default function formatDate(inputDate: string | number) {
   const date = new Date(inputDate);
@@ -10,7 +10,6 @@ export default function formatDate(inputDate: string | number) {
   const hours = date.getHours();
   const minutes = date.getMinutes();
 
-  // Định dạng giờ và phút để luôn có 2 chữ số
   const formattedHours = hours.toString().padStart(2, "0");
   const minutesStr = minutes.toString().padStart(2, "0");
 

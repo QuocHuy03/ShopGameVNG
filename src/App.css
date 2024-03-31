@@ -701,7 +701,45 @@ p code[data-v-3f3af4cc] {
   display: block;
   border-radius: 10px;
 }
+.packageBadge .isSelectBadge:not(.quantityBadge) {
+  right: 10px;
+  background: #2eba7d;
+}
 
+.packageBadge .infoBadge, .packageBadge .isSelectBadge, .packageBadge .notSelectBadge {
+  position: absolute;
+  bottom: 10px;
+  width: auto;
+  min-width: 36px;
+  height: 36px;
+  padding: 5px 6px 2px;
+  margin: auto;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all .5 ease;
+}
+.packageBadge i {
+  width: 16px;
+  height: 16px;
+}
+.packageBadge i, .packageBadge span {
+  color: #fff;
+  font-size: 12px;
+}
+.pmt-method.selected {
+  border-color: #e26900;
+}
+.pmt-method.selected .pmt-method__name {
+  border-color: #e26900;
+  background-color: #e26900;
+}
+.pmt-method.selected .pmt-method__name {
+  
+  color: #fff;
+}
 .package-item {
   position: relative;
   max-width: 290px;
@@ -5804,7 +5842,7 @@ p code[data-v-3f3af4cc] {
   float: none;
   display: inline-block;
   text-align: left;
-  padding: 0 0 10px;
+
 }
 
 .el-form--inline .el-form-item {
@@ -16732,7 +16770,7 @@ p code[data-v-3f3af4cc] {
 
 .pmtInputContainer .button {
   width: 100%;
-  margin-bottom: 10px;
+  margin-top: 10px;
 }
 .button {
   padding: 10px;
@@ -17052,7 +17090,6 @@ p code[data-v-3f3af4cc] {
 
 .el-form-item.is-error .el-form-item__error {
   top: calc(100% + 5px);
-  margin-left: 24px;
 }
 
 .el-form-item__error {
