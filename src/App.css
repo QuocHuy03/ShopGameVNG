@@ -16648,12 +16648,10 @@ p code[data-v-3f3af4cc] {
 }
 
 .pmt-method__info .pmt__img.payzing {
-  background-image: url(https://shop.vnggames.com/primo/static/img/icon-pack-vn-min.webp?ts=95825_20240326);
   background-repeat: no-repeat;
   background-position: -100% -100%;
   background-size: 590px;
   max-width: 40px;
-  height: 40px;
   display: inline-block;
   width: 100%;
   border-radius: 4px;

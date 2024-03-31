@@ -25,7 +25,6 @@ export const homeReducer = (
         ...state,
         loading: true,
         success: false,
-
         error: null,
       };
 

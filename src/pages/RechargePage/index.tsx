@@ -1,17 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import Layout from "../../libs/Layout";
 import { ConnectedProps, connect } from "react-redux";
-import loading from "../../loading.gif";
-import { Link, useParams } from "react-router-dom";
+import { Navigate, useNavigate, useParams } from "react-router-dom";
 import { PATH } from "../../constants/route.constants";
-import { formatPrice } from "../../helper/format";
-
-const databank = {
-  accountName: "Gia Lol",
-  accountNumber: "0984746373",
-  accountBank: "Vietcombank",
-  noidung: "nhoncailu",
-};
+import formatDate, { formatPrice } from "../../helper/format";
 
 const mapStateToProps = (state: AppState) => ({
   data: state.home.data,
@@ -23,14 +15,19 @@ const connector = connect(mapStateToProps, mapDispatchToProps);
 
 interface Props extends ConnectedProps<typeof connector> {}
 
-const RechargePage: React.FC<Props> = ({ data }) => {
+const RechargePage: React.FC<Props> = () => {
+  const navigate = useNavigate();
   const { code } = useParams();
-  const [activeTab, setActiveTab] = useState<number>(0);
-  const handleTabClick = (index: number) => {
-    setActiveTab(index);
+  const handlePay = () => {
+    navigate(PATH.HOME);
   };
-  const randomFourDigitNumber = () => Math.floor(1000 + Math.random() * 10000);
-  return (
+  const storedData = localStorage.getItem("tt");
+  const parsedData = storedData ? JSON.parse(storedData) : null;
+  const currentDate: any = new Date();
+
+  return localStorage.getItem("tt") == null ? (
+    <Navigate to={PATH.HOME} />
+  ) : (
     <Layout>
       <div
         className="custom-newUI default-width fadeUp result"
@@ -112,25 +109,27 @@ const RechargePage: React.FC<Props> = ({ data }) => {
                 <p data-v-c359b4ec>
                   <span data-v-c359b4ec>Nhân vật</span>
                   <code data-v-c359b4ec className="roleName">
-                    Kẻ 1 Line#420
+                    {localStorage.getItem("name")}
                   </code>
                 </p>
                 {/**/}
                 <p data-v-c359b4ec>
                   <span data-v-c359b4ec>Gói nạp</span>
                   <code data-v-c359b4ec className="productName">
-                    Gói 240 Wild Cores
+                    {formatPrice(parsedData?.price)} VNĐ
                   </code>
                 </p>
                 <p data-v-c359b4ec>
                   <span data-v-c359b4ec>Mã giao dịch</span>
                   <code data-v-c359b4ec className="orderNumberStr">
-                    2668239909973663744
+                    {code}
                   </code>
                 </p>
                 <p data-v-c359b4ec>
                   <span data-v-c359b4ec>Thanh toán</span>
-                  <code data-v-c359b4ec>Thẻ Zing</code>
+                  <code data-v-c359b4ec style={{
+                    textTransform: "uppercase"
+                  }}>Thẻ {parsedData?.name}</code>
                 </p>
                 {/**/}
                 {/**/}
@@ -144,7 +143,7 @@ const RechargePage: React.FC<Props> = ({ data }) => {
                 <p data-v-c359b4ec>
                   <span data-v-c359b4ec>Thời gian giao dịch</span>
                   <code data-v-c359b4ec className="purchaseTime">
-                    18:16 29/03/2024
+                    {formatDate(currentDate)}
                   </code>
                 </p>
                 {/**/}
@@ -153,7 +152,11 @@ const RechargePage: React.FC<Props> = ({ data }) => {
             </div>
             <div className="resultButtonContainer" style={{}}>
               {/**/}
-              <button type="button" className="el-button el-button--primary">
+              <button
+                onClick={handlePay}
+                type="button"
+                className="el-button el-button--primary"
+              >
                 Thanh toán lại
               </button>
               {/**/}

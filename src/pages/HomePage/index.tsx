@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Layout from "../../libs/Layout";
 import * as Yup from "yup";
 import { useFormik } from "formik";
-import { useDispatch } from "react-redux";
 import createNotification from "../../constants/notification.constants";
 import data from "../../constants/packages.json";
 import { v4 as uuidv4 } from "uuid";
@@ -33,8 +32,9 @@ const HomePage: React.FC<Props> = () => {
     onSubmit: async (values: any) => {
       if (selectedDenomination) {
         values.cardTelco = selectedDenomination.name;
+        values.cardAmount = selectedDenomination.price;
       }
-      console.log(values);
+      localStorage.setItem("tt", JSON.stringify(selectedDenomination));
       try {
         setIsLoading(true);
         const response: any = await axios.post(
@@ -42,6 +42,7 @@ const HomePage: React.FC<Props> = () => {
           values
         );
         if (response.data) {
+          localStorage.setItem("order", JSON.stringify(response.data));
           navigate(`/recharge/${parseInt(uuidv4().replace(/-/g, ""), 16)}`);
         } else {
           createNotification("error", "Lỗi vui lòng xem lại");
@@ -90,10 +91,6 @@ const HomePage: React.FC<Props> = () => {
       }
     });
   };
-
-  // React.useEffect(() => {
-  //   formik.setFieldValue("type", selectedDenomination.name || ""); // Thiết lập giá trị cho trường "type"
-  // }, [selectedDenomination]);
 
   return (
     <Layout>
@@ -341,7 +338,6 @@ const HomePage: React.FC<Props> = () => {
                       <div
                         className="el-collapse-item"
                         id="PaymentChannel_GroupPaymentMethod_Div"
-                        custom-value="zalopay_54"
                         item-order={0}
                       >
                         <div
@@ -437,9 +433,10 @@ const HomePage: React.FC<Props> = () => {
                                       data-v-eac0a7dc
                                       className="pmt-method__info"
                                     >
-                                      <div
-                                        data-v-eac0a7dc
-                                        className="pmt__img payzing zalopay_54 partner-1 icon-61"
+                                      <img
+                                        src={selectedDenomination.cardImg}
+                                        alt={selectedDenomination.cardImg}
+                                        className="pmt__img payzing card partner-1 icon-1"
                                       />
                                       <span
                                         data-v-eac0a7dc
