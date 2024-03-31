@@ -17087,7 +17087,11 @@ p code[data-v-3f3af4cc] {
 .loginForm .is-error .el-form-item__error {
   color: #ff4949;
 }
-
+.button.disabled{
+  border: none;
+  background: #ebebeb;
+  cursor: not-allowed;
+}
 .el-form-item.is-error .el-form-item__error {
   top: calc(100% + 5px);
 }

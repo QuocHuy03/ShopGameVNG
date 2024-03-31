@@ -23,28 +23,11 @@ const validationSchema = Yup.object({
 const HomePage: React.FC<Props> = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const [validationErrors, setValidationErrors] = useState<any>([]);
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [isValidateSuccess, setValidateSuccess] = useState<boolean>(false);
   const [selectedItem, setSelectedItem] = useState(data?.[0] || null);
   const [selectedDenomination, setSelectedDenomination] = useState<any>(null);
   const [selectedCard, setSelectedCard] = useState<boolean>(false);
-
-  const handleItemClick = (item: any) => {
-    setSelectedItem(item);
-  };
-
-  const handleDenominationClick = (denomination: any) => {
-    setSelectedDenomination(denomination);
-  };
-
-  const handleCardClick = () => {
-    setSelectedCard(true);
-  };
-
-  const handleToggleDropdown = () => {
-    setIsOpen(!isOpen);
-  };
 
   const formik: any = useFormik({
     initialValues: {
@@ -71,6 +54,26 @@ const HomePage: React.FC<Props> = () => {
       // }
     },
   });
+
+  const handleItemClick = (item: any) => {
+    setSelectedItem(item);
+    setSelectedDenomination(null);
+    setSelectedCard(false);
+    setIsOpen(false);
+    formik.resetFields();
+  };
+
+  const handleDenominationClick = (denomination: any) => {
+    setSelectedDenomination(denomination);
+  };
+
+  const handleCardClick = () => {
+    setSelectedCard(true);
+  };
+
+  const handleToggleDropdown = () => {
+    setIsOpen(!isOpen);
+  };
 
   const handleConfirmationSubmit = () => {
     formik.validateForm().then((errors: any) => {
@@ -558,7 +561,9 @@ const HomePage: React.FC<Props> = () => {
                                         <button
                                           type="button"
                                           onClick={handleConfirmationSubmit}
-                                          className="el-button el-button--default button disabled"
+                                          className={`el-button el-button--default button ${
+                                            !formik.isValid && "disabled"
+                                          }`}
                                         >
                                           {/**/}
                                           {/**/}
@@ -581,7 +586,9 @@ const HomePage: React.FC<Props> = () => {
               )}
 
               {/* ddddddddd */}
-              {isValidateSuccess &&
+              {selectedItem &&
+                isValidateSuccess &&
+                selectedDenomination &&
                 formik.values.cardSerial &&
                 formik.values.cardPassword && (
                   <div
@@ -600,29 +607,20 @@ const HomePage: React.FC<Props> = () => {
                     <div className="content-box__content">
                       <div data-v-c359b4ec className="list-info customsize">
                         <div data-v-c359b4ec className="product-wrapper">
-                          <div
-                            custom-value="74c3b8cc-8b4a-4522-96aa-b89ffe6bbaec"
-                            item-order={0}
-                            data-id="74c3b8cc-8b4a-4522-96aa-b89ffe6bbaec"
-                            data-price={50000}
-                            className="package-item"
-                          >
+                          <div className="package-item">
                             <picture className="handle-image">
                               <source
-                                srcSet="https://scdn-imgsot.vng.games/ws-content/uploads//TOCCHIEN-ZINGPAY-1-LIVE/image/product/1068560116225282048.png?size=origin&iswebp=1"
+                                srcSet={selectedDenomination.image}
                                 type="image/webp"
                               />
                               <img
-                                src="https://stc-sot.vcdn.vn/ws-content/uploads//TOCCHIEN-ZINGPAY-1-LIVE/image/product/1068560116225282048.png"
-                                alt="Gói 240 Wild Cores"
+                                src={selectedDenomination.image}
+                                alt={`Gói ${selectedDenomination.gift} Wild Cores`}
                               />
                             </picture>
                             {/**/}
                             {/**/}
-                            <div
-                              data-id="74c3b8cc-8b4a-4522-96aa-b89ffe6bbaec"
-                              className="packageBadge"
-                            >
+                            <div className="packageBadge">
                               {/**/}
                               {/**/}
                               {/**/}
@@ -657,7 +655,7 @@ const HomePage: React.FC<Props> = () => {
                           <p data-v-c359b4ec>
                             <span data-v-c359b4ec>Nhân vật</span>
                             <code data-v-c359b4ec className="roleName">
-                              Kẻ 1 Line#420
+                              {localStorage.getItem("name")}
                             </code>
                           </p>
                           {/**/}
@@ -665,7 +663,7 @@ const HomePage: React.FC<Props> = () => {
                           {/**/}
                           <p data-v-c359b4ec>
                             <span data-v-c359b4ec>Thanh toán</span>
-                            <code data-v-c359b4ec>Thẻ Zing</code>
+                            <code data-v-c359b4ec>Thẻ {selectedItem.name}</code>
                           </p>
                           {/**/}
                           {/**/}
@@ -683,7 +681,7 @@ const HomePage: React.FC<Props> = () => {
                       </div>
                       {/**/}
                       <p className="prdDescription" />
-                      <p>Gói 240 Wild Cores</p>
+                      <p>Gói {selectedDenomination.gift} Wild Cores</p>
                       <p />
                       {/**/}
                       <p className="confirmPolicy">
