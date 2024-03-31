@@ -36,6 +36,9 @@ const HomePage: React.FC<Props> = () => {
     },
     validationSchema,
     onSubmit: async (values: any) => {
+      if (selectedDenomination) {
+        values.cardTelco = selectedDenomination.name;
+      }
       console.log(values);
       // try {
       //   NProgress.start();
@@ -60,11 +63,16 @@ const HomePage: React.FC<Props> = () => {
     setSelectedDenomination(null);
     setSelectedCard(false);
     setIsOpen(false);
-    formik.resetFields();
+    formik.resetForm();
+    setValidateSuccess(false);
   };
 
   const handleDenominationClick = (denomination: any) => {
     setSelectedDenomination(denomination);
+    setSelectedCard(false);
+    setIsOpen(false);
+    formik.resetForm();
+    setValidateSuccess(false);
   };
 
   const handleCardClick = () => {
@@ -87,10 +95,9 @@ const HomePage: React.FC<Props> = () => {
     });
   };
 
-  // Gửi dữ liệu form tới server khi người dùng nhấn nút "Thanh toán ngay"
-  const handlePaymentSubmit = () => {
-    formik.handleSubmit();
-  };
+  // React.useEffect(() => {
+  //   formik.setFieldValue("type", selectedDenomination.name || ""); // Thiết lập giá trị cho trường "type"
+  // }, [selectedDenomination]);
 
   return (
     <Layout>
