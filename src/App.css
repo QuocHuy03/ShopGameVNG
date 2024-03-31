@@ -16801,7 +16801,9 @@ p code[data-v-3f3af4cc] {
 .headResult.fail {
   color: rgba(219, 31, 31, 0.9);
 }
-
+.headResult.success {
+  color: rgb(73 161 57 / 90%);
+}
 .headResult {
   font-size: 24px;
   font-weight: 700;

@@ -23,9 +23,13 @@ const RechargePage: React.FC<Props> = () => {
   };
   const storedData = localStorage.getItem("tt");
   const parsedData = storedData ? JSON.parse(storedData) : null;
+  const orderData = localStorage.getItem("order");
+
+  const payData = orderData ? JSON.parse(orderData) : null;
   const currentDate: any = new Date();
 
-  return localStorage.getItem("tt") == null ? (
+  return localStorage.getItem("tt") == null ||
+    localStorage.getItem("order") == null ? (
     <Navigate to={PATH.HOME} />
   ) : (
     <Layout>
@@ -35,15 +39,17 @@ const RechargePage: React.FC<Props> = () => {
       >
         <div className="el-row">
           <div className="el-col el-col-24 content single-item-order">
-            <label className="headResult fail">
-              Giao dịch không thành công
+            <label
+              className={`headResult ${payData.status ? "success" : "fail"}`}
+            >
+              {payData.status
+                ? "Giao dịch thành công"
+                : "Giao dịch không thành công"}
             </label>
             <div className="resultTitle" style={{}}>
               <div className="notification single-item-order">
                 {/**/}
-                <p className="message">
-                  Thẻ đã được sử dụng, giao dịch thất bại!
-                </p>
+                <p className="message">{payData.message}</p>
                 {/**/}
                 {/**/}
                 {/**/}
@@ -62,14 +68,8 @@ const RechargePage: React.FC<Props> = () => {
                   className="package-item"
                 >
                   <picture className="handle-image">
-                    <source
-                      srcSet="https://scdn-imgsot.vng.games/ws-content/uploads//TOCCHIEN-ZINGPAY-1-LIVE/image/product/1068560116225282048.png?size=origin&iswebp=1"
-                      type="image/webp"
-                    />
-                    <img
-                      src="https://stc-sot.vcdn.vn/ws-content/uploads//TOCCHIEN-ZINGPAY-1-LIVE/image/product/1068560116225282048.png"
-                      alt="Gói 240 Wild Cores"
-                    />
+                    <source srcSet={parsedData?.image} type="image/webp" />
+                    <img src={parsedData?.image} alt={`Gói ${parsedData?.gift} Wild Cores`}/>
                   </picture>
                   {/**/}
                   {/**/}
@@ -127,9 +127,14 @@ const RechargePage: React.FC<Props> = () => {
                 </p>
                 <p data-v-c359b4ec>
                   <span data-v-c359b4ec>Thanh toán</span>
-                  <code data-v-c359b4ec style={{
-                    textTransform: "uppercase"
-                  }}>Thẻ {parsedData?.name}</code>
+                  <code
+                    data-v-c359b4ec
+                    style={{
+                      textTransform: "uppercase",
+                    }}
+                  >
+                    Thẻ {parsedData?.name}
+                  </code>
                 </p>
                 {/**/}
                 {/**/}
