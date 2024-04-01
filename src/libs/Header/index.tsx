@@ -100,6 +100,8 @@ const Header: React.FC<Props> = () => {
               style={{}}
               id="rightPanel-content"
             >
+              {localStorage.getItem("name") !== null && (
+
               <li
                 role="menuitem"
                 tabIndex={-1}
@@ -128,16 +130,11 @@ const Header: React.FC<Props> = () => {
                       <div className="user-info-uid mobile">ID</div> Kẻ 1
                       Line#420{" "}
                     </span>
-                    <div
-                      id="us-userInfo-copy"
-                      className="user-info-copy"
-                      style={{ left: 112 }}
-                    >
-                      Sao chép
-                    </div>
+                  
                   </div>
                 </div>
               </li>
+              )}
               <li
                 role="menuitem"
                 tabIndex={-1}
@@ -148,8 +145,6 @@ const Header: React.FC<Props> = () => {
                 <a
                   id="BtnToMainsite_A"
                   href="https://pay.zing.vn/"
-                  custom-value="navbar"
-                  exact
                 >
                   Quay về trang chủ
                 </a>

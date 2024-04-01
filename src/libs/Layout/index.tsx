@@ -19,7 +19,7 @@ const Layout: React.FC<Props> = ({ children }) => {
             className={`el-scrollbar__wrap ${
               isMobile ? "el-scrollbar__wrap--hidden-default" : ""
             }`}
-            style={{ overflowY: isOpenSidebar ? "scroll" : "hidden" }}
+            style={{ overflowY: isOpenSidebar ? "hidden" : "scroll" }}
           >
             <div className="el-scrollbar__view">
               <div className={`layout ${isMobile ? "mobile" : "pc"}`}>
