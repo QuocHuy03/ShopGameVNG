@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom";
 import { formatPrice } from "../../helper/format";
 import axios from "axios";
 import Loading from "../../components/Loading";
+import { useMediaQuery } from "react-responsive";
 type Props = {};
 
 const validationSchema = Yup.object({
@@ -91,7 +92,7 @@ const HomePage: React.FC<Props> = () => {
       }
     });
   };
-
+  const isMobile = useMediaQuery({ maxWidth: 980 });
   return (
     <Layout>
       <div style={{ marginTop: 0 }}>
@@ -99,33 +100,42 @@ const HomePage: React.FC<Props> = () => {
         {/**/}
         {/**/}
         {/**/}
-        <div className="container pc">
+        <div className={`container ${isMobile ? "mobile" : "pc"}`}>
           <div className="banner">
             <div className="banner-content banner-img">
               <div className="banner-content__center">
                 <picture>
                   <source
-                    srcSet="https://scdn-img.vng.games/mainsite/images/WR-searchbanner-1920x450_new.jpg?size=origin&iswebp=1"
+                    srcSet={`${
+                      isMobile
+                        ? "https://scdn-img.vng.games/mainsite/images/WR-banner-600x337.jpg?size=origin&iswebp=1"
+                        : "https://scdn-img.vng.games/mainsite/images/WR-searchbanner-1920x450_new.jpg?size=origin&iswebp=1"
+                    }`}
                     type="image/webp"
                   />
                   <img
-                    src="https://scdn-stc.vng.games/mainsite/images/WR-searchbanner-1920x450_new.jpg"
-                    alt="https://scdn-stc.vng.games/mainsite/images/WR-searchbanner-1920x450_new.jpg"
+                    src={`${
+                      isMobile
+                        ? "https://scdn-stc.vng.games/mainsite/images/WR-banner-600x337.jpg"
+                        : "https://scdn-stc.vng.games/mainsite/images/WR-searchbanner-1920x450_new.jpg"
+                    }`}
                   />
                 </picture>
               </div>
             </div>
-            <picture>
-              <source
-                srcSet="https://scdn-img.vng.games/mainsite/images/WR-logo-240x160_2D.png?size=origin&iswebp=1"
-                type="image/webp"
-              />
-              <img
-                src="https://scdn-stc.vng.games/mainsite/images/WR-logo-240x160_2D.png"
-                alt="https://scdn-stc.vng.games/mainsite/images/WR-logo-240x160_2D.png"
-                className="banner-logo"
-              />
-            </picture>
+            {!isMobile && (
+              <picture>
+                <source
+                  srcSet="https://scdn-img.vng.games/mainsite/images/WR-logo-240x160_2D.png?size=origin&iswebp=1"
+                  type="image/webp"
+                />
+                <img
+                  src="https://scdn-stc.vng.games/mainsite/images/WR-logo-240x160_2D.png"
+                  alt="https://scdn-stc.vng.games/mainsite/images/WR-logo-240x160_2D.png"
+                  className="banner-logo"
+                />
+              </picture>
+            )}
             <span className="banner-title">
               Liên Minh Huyền Thoại: Tốc Chiến
             </span>
@@ -250,7 +260,9 @@ const HomePage: React.FC<Props> = () => {
                             onClick={() =>
                               handleDenominationClick(denomination)
                             }
-                            className="el-col el-col-12"
+                            className={`el-col el-col-${
+                              isMobile ? "24" : "12"
+                            }`}
                             style={{ paddingLeft: 15, paddingRight: 15 }}
                           >
                             <div
@@ -394,7 +406,7 @@ const HomePage: React.FC<Props> = () => {
                             )}
                           </div>
                         </div>
-                        {isOpen && (
+                        {isOpen && !isMobile && (
                           <div
                             onClick={handleCardClick}
                             role="tabpanel"
@@ -412,7 +424,7 @@ const HomePage: React.FC<Props> = () => {
                               {/**/}
                               <div
                                 data-v-5d4a953c
-                                className="el-row"
+                                className={`el-row`}
                                 style={{
                                   marginLeft: "-5px",
                                   marginRight: "-5px",
@@ -420,7 +432,9 @@ const HomePage: React.FC<Props> = () => {
                               >
                                 <div
                                   data-v-5d4a953c
-                                  className="el-col el-col-8"
+                                  className={`el-col ${
+                                    isMobile ? "el-col-24" : "el-col-8"
+                                  }`}
                                   style={{ paddingLeft: 5, paddingRight: 5 }}
                                 >
                                   <div
@@ -574,6 +588,190 @@ const HomePage: React.FC<Props> = () => {
                                     </div>
                                   </div>
                                 )}
+                              </div>
+                              {/**/}
+                            </div>
+                          </div>
+                        )}
+
+                        {isOpen && isMobile && (
+                          <div
+                            role="tabpanel"
+                            onClick={handleCardClick}
+                            aria-labelledby="el-collapse-head-4692"
+                            id="el-collapse-content-4692"
+                            className="el-collapse-item__wrap"
+                            style={{}}
+                            data-old-padding-top
+                            data-old-padding-bottom
+                            data-old-overflow
+                          >
+                            <div className="el-collapse-item__content">
+                              {/**/}
+                              {/**/}
+                              {/**/}
+                              <div
+                                data-v-5d4a953c
+                                className="el-row"
+                                style={{
+                                  marginLeft: "-5px",
+                                  marginRight: "-5px",
+                                }}
+                              >
+                                <div
+                                  data-v-5d4a953c
+                                  className="el-col el-col-24"
+                                  style={{ paddingLeft: 5, paddingRight: 5 }}
+                                >
+                                  <div
+                                    className="pmt-method selected hasInput"
+                                    id="PaymentChannel_PaymentMethod_Div"
+                                  >
+                                    <span
+                                      data-v-eac0a7dc
+                                      className="pmt-method__info"
+                                    >
+                                      <img
+                                        src={selectedDenomination.cardImg}
+                                        alt={selectedDenomination.cardImg}
+                                        className="pmt__img payzing card partner-1 icon-1"
+                                      />
+                                      <span
+                                        data-v-eac0a7dc
+                                        className="pmt__cost"
+                                      >
+                                        <span data-v-5d4a953c data-v-eac0a7dc>
+                                          {formatPrice(
+                                            selectedDenomination.price
+                                          )}{" "}
+                                          VND
+                                        </span>
+                                      </span>
+                                      {/**/}
+                                    </span>
+                                    {selectedCard && (
+                                  <div
+                                    data-v-5d4a953c
+                                    className="el-col el-col-24"
+                                    style={{ paddingLeft: 5, paddingRight: 5 }}
+                                  >
+                                    <div
+                                      data-v-5d4a953c
+                                      className="pmt-input show"
+                                    >
+                                      <div
+                                        data-v-5d4a953c
+                                        className="pmtInputContainer"
+                                      >
+                                        <div className="el-form pmtMethodInput el-form--label-top">
+                                          <div
+                                            className={`el-form-item ${
+                                              formik.touched.cardSerial &&
+                                              formik.errors.cardSerial &&
+                                              "is-error"
+                                            } is-required`}
+                                          >
+                                            <label
+                                              htmlFor="cardSerial"
+                                              className="el-form-item__label"
+                                            >
+                                              Số seri
+                                            </label>
+                                            <div className="el-form-item__content">
+                                              <div
+                                                className="dataInput el-input"
+                                                id="PaymentInfoSubmission_cardSerial_Input"
+                                              >
+                                                {/**/}
+                                                <input
+                                                  type="text"
+                                                  autoComplete="off"
+                                                  id="cardSerial"
+                                                  placeholder="Nhập số seri"
+                                                  className={`el-input__inner`}
+                                                  {...formik.getFieldProps(
+                                                    "cardSerial"
+                                                  )}
+                                                />
+                                                {formik.errors.cardSerial && (
+                                                  <div
+                                                    id="Authentication_quick_rid_error_input"
+                                                    className="el-form-item__error is-error primo-error"
+                                                  >
+                                                    {formik.errors.cardSerial}
+                                                  </div>
+                                                )}
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div
+                                            className={`el-form-item ${
+                                              formik.touched.cardPassword &&
+                                              formik.errors.cardPassword &&
+                                              "is-error"
+                                            } is-required`}
+                                          >
+                                            <label
+                                              htmlFor="cardPassword"
+                                              className="el-form-item__label"
+                                            >
+                                              Mã thẻ
+                                            </label>
+                                            <div className="el-form-item__content">
+                                              <div
+                                                className="dataInput el-input"
+                                                id="PaymentInfoSubmission_cardPassword_Input"
+                                              >
+                                                {/**/}
+                                                <input
+                                                  type="text"
+                                                  autoComplete="off"
+                                                  id="cardPassword"
+                                                  placeholder="Nhập mã thẻ"
+                                                  {...formik.getFieldProps(
+                                                    "cardPassword"
+                                                  )}
+                                                  className="el-input__inner"
+                                                />
+                                                {formik.errors.cardPassword && (
+                                                  <div
+                                                    id="Authentication_quick_rid_error_input"
+                                                    className="el-form-item__error is-error primo-error"
+                                                  >
+                                                    {formik.errors.cardPassword}
+                                                  </div>
+                                                )}
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <button
+                                          type="button"
+                                          onClick={handleConfirmationSubmit}
+                                          className={`el-button el-button--default button ${
+                                            !formik.isValid && "disabled"
+                                          }`}
+                                        >
+                                          {/**/}
+                                          {/**/}
+                                          <span>Xác nhận</span>
+                                        </button>
+                                      </div>
+                                      {/**/}
+                                    </div>
+                                  </div>
+                                )}
+                                    <div
+                                      data-v-eac0a7dc
+                                      className="pmt-method__name"
+                                    >
+                                      <span data-v-5d4a953c data-v-eac0a7dc>
+                                        {selectedDenomination.name}
+                                      </span>
+                                    </div>
+                                  </div>
+                                </div>
+                                {/**/}
                               </div>
                               {/**/}
                             </div>

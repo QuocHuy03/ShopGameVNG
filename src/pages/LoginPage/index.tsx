@@ -9,6 +9,7 @@ import FormFieldError from "../../components/FormFieldError";
 import axios from "axios";
 import Loading from "../../components/Loading";
 import { PATH } from "../../constants/route.constants";
+import { useMediaQuery } from "react-responsive";
 type Props = {};
 
 const validationSchema = Yup.object({
@@ -19,6 +20,7 @@ const LoginPage: React.FC<Props> = () => {
   const navigate = useNavigate();
   const [validationErrors, setValidationErrors] = useState<any>([]);
   const [isLoading, setIsLoading] = useState(false);
+  const isMobile = useMediaQuery({ maxWidth: 980 });
   const formik = useFormik({
     initialValues: {
       name: "",
@@ -50,33 +52,42 @@ const LoginPage: React.FC<Props> = () => {
   return (
     <Layout>
       <div style={{ marginTop: 0 }}>
-        <div className="container pc">
+        <div className={`container ${isMobile ? "mobile" : "pc"}`}>
           <div className="banner">
             <div className="banner-content banner-img">
               <div className="banner-content__center">
                 <picture>
                   <source
-                    srcSet="https://scdn-img.vng.games/mainsite/images/WR-searchbanner-1920x450_new.jpg?size=origin&iswebp=1"
+                    srcSet={`${
+                      isMobile
+                        ? "https://scdn-img.vng.games/mainsite/images/WR-banner-600x337.jpg?size=origin&iswebp=1"
+                        : "https://scdn-img.vng.games/mainsite/images/WR-searchbanner-1920x450_new.jpg?size=origin&iswebp=1"
+                    }`}
                     type="image/webp"
                   />
                   <img
-                    src="https://scdn-stc.vng.games/mainsite/images/WR-searchbanner-1920x450_new.jpg"
-                    alt="https://scdn-stc.vng.games/mainsite/images/WR-searchbanner-1920x450_new.jpg"
+                    src={`${
+                      isMobile
+                        ? "https://scdn-stc.vng.games/mainsite/images/WR-banner-600x337.jpg"
+                        : "https://scdn-stc.vng.games/mainsite/images/WR-searchbanner-1920x450_new.jpg"
+                    }`}
                   />
                 </picture>
               </div>
             </div>
-            <picture>
-              <source
-                srcSet="https://scdn-img.vng.games/mainsite/images/WR-logo-240x160_2D.png?size=origin&iswebp=1"
-                type="image/webp"
-              />
-              <img
-                src="https://scdn-stc.vng.games/mainsite/images/WR-logo-240x160_2D.png"
-                alt="https://scdn-stc.vng.games/mainsite/images/WR-logo-240x160_2D.png"
-                className="banner-logo"
-              />
-            </picture>
+            {!isMobile && (
+              <picture>
+                <source
+                  srcSet="https://scdn-img.vng.games/mainsite/images/WR-logo-240x160_2D.png?size=origin&iswebp=1"
+                  type="image/webp"
+                />
+                <img
+                  src="https://scdn-stc.vng.games/mainsite/images/WR-logo-240x160_2D.png"
+                  alt="https://scdn-stc.vng.games/mainsite/images/WR-logo-240x160_2D.png"
+                  className="banner-logo"
+                />
+              </picture>
+            )}
             <span className="banner-title">
               Liên Minh Huyền Thoại: Tốc Chiến
             </span>

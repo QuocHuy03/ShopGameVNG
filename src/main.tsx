@@ -9,7 +9,7 @@ const queryClient = new QueryClient();
 import NProgress from "nprogress";
 import "nprogress/nprogress.css"; // Import the styles
 import { BrowserRouter } from "react-router-dom";
-// Configure NProgress
+import AppContextProvider from "./contexts/AppContextProvider.tsx";
 NProgress.configure({ showSpinner: true });
 ReactDOM.createRoot(document.getElementById("root")!).render(
   // <React.StrictMode>
@@ -17,7 +17,9 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
     <QueryClientProvider client={queryClient}>
       <Provider store={store}>
         <PersistGate persistor={persistor}>
-          <App />
+          <AppContextProvider>
+            <App />
+          </AppContextProvider>
         </PersistGate>
       </Provider>
     </QueryClientProvider>
