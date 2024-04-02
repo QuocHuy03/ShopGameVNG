@@ -10,6 +10,7 @@ import NProgress from "nprogress";
 import "nprogress/nprogress.css"; // Import the styles
 import { BrowserRouter } from "react-router-dom";
 import AppContextProvider from "./contexts/AppContextProvider.tsx";
+import { ModalProvider } from "./contexts/ModalContextProvider.tsx";
 NProgress.configure({ showSpinner: true });
 ReactDOM.createRoot(document.getElementById("root")!).render(
   // <React.StrictMode>
@@ -18,7 +19,9 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
       <Provider store={store}>
         <PersistGate persistor={persistor}>
           <AppContextProvider>
-            <App />
+            <ModalProvider>
+              <App />
+            </ModalProvider>
           </AppContextProvider>
         </PersistGate>
       </Provider>

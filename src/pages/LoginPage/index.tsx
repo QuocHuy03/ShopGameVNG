@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import Layout from "../../libs/Layout";
 import * as Yup from "yup";
 import { useFormik } from "formik";
@@ -10,6 +10,8 @@ import axios from "axios";
 import Loading from "../../components/Loading";
 import { PATH } from "../../constants/route.constants";
 import { useMediaQuery } from "react-responsive";
+import { useModal } from "../../contexts/ModalContextProvider";
+import ModalWrapper from "../../components/Modal";
 type Props = {};
 
 const validationSchema = Yup.object({
@@ -18,6 +20,9 @@ const validationSchema = Yup.object({
 
 const LoginPage: React.FC<Props> = () => {
   const navigate = useNavigate();
+  const modalCreateRef = useRef<any>(null);
+  const { openModal, closeModal } = useModal("createPage");
+
   const [validationErrors, setValidationErrors] = useState<any>([]);
   const [isLoading, setIsLoading] = useState(false);
   const isMobile = useMediaQuery({ maxWidth: 980 });
@@ -30,7 +35,7 @@ const LoginPage: React.FC<Props> = () => {
       setIsLoading(true);
       try {
         const response: any = await axios.post(
-          "http://localhost:8000/loginByRole",
+          "https://api.shop-vnggame.com/loginByRole",
           values
         );
         if (response.data.returnCode == 1) {
@@ -48,6 +53,27 @@ const LoginPage: React.FC<Props> = () => {
       }
     },
   });
+  const openCreatePageModal = () => {
+    openModal();
+  };
+
+  const handleDocumentClick = (event: any) => {
+    // Kiểm tra xem người dùng có nhấp vào nút mở modal không
+    if (
+      modalCreateRef.current &&
+      !modalCreateRef.current.contains(event.target) &&
+      !event.target.classList.contains("btn-modal-open")
+    ) {
+      closeModal();
+    }
+  };
+
+  React.useEffect(() => {
+    document.addEventListener("click", handleDocumentClick);
+    return () => {
+      document.removeEventListener("click", handleDocumentClick);
+    };
+  }, [closeModal]);
 
   return (
     <Layout>
@@ -108,6 +134,8 @@ const LoginPage: React.FC<Props> = () => {
                     <div
                       className="IdentificationCustomInfo QUICK INLINE"
                       id="Authentication_HowToFindRoleID_A"
+                      onClick={openCreatePageModal}
+                      ref={modalCreateRef}
                     >
                       {/**/}
                       <a className="GET_UID_IMAGE">Hướng dẫn tìm ID</a>
@@ -174,6 +202,46 @@ const LoginPage: React.FC<Props> = () => {
           {/**/}
         </div>
       </div>
+      <ModalWrapper
+        size=""
+        onClickStopModal={(event: any) => event.stopPropagation()}
+        modalName="createPage"
+      >
+        <div
+          data-v-05e4c1f0
+          id="Popup_Container_Div"
+          className="confirmation-container"
+        >
+          <div
+            data-v-05e4c1f0
+            id="Popup_Content_Div"
+            custom-value
+            className="confirmation-content img"
+          >
+            {/**/}
+            <div
+              data-v-05e4c1f0
+              id="Popup_BodyDisplay_Div"
+              className="confirmation-content__body img "
+            >
+              <div data-v-05e4c1f0>
+                {/**/}
+                <picture data-v-05e4c1f0>
+                  <source
+                    srcSet="https://scdn-img.vng.games/mainsite/images/tocchien.png?size=origin&iswebp=1"
+                    type="image/webp"
+                  />
+                  <img
+                    src="https://scdn-stc.vng.games/mainsite/images/tocchien.png"
+                    alt="https://scdn-stc.vng.games/mainsite/images/tocchien.png"
+                  />
+                </picture>
+              </div>
+            </div>
+            {/**/}
+          </div>
+        </div>
+      </ModalWrapper>
     </Layout>
   );
 };
